@@ -1,0 +1,56 @@
+{
+    "name": "Reviews",
+    "lowCaseName": "reviews",
+    "description": "A reviews solution for MODX Revolution.",
+    "author": "Sterc",
+    "version": "1.0.0-pl",
+    "package":{
+        "menus": [{
+            "text": "reviews",
+            "description": "reviews.desc",
+            "parent": "components",
+            "action": "home",
+            "permissions": "reviews"
+        }],
+        "elements": {
+            "chunks": [{
+                "name": "reviewsItemTpl",
+                "file": "item.chunk.tpl"
+            },{
+                "name": "reviewsWrapperTpl",
+                "file": "wrapper.chunk.tpl"
+            }],
+            "snippets": [{
+                "name": "Reviews",
+                "file": "reviews.snippet.php"
+            }]
+        },
+        "systemSettings": [{
+            "key": "branding_url",
+            "area": "reviews"
+        },{
+            "key": "branding_url_help",
+            "area": "reviews"
+        },{
+            "key": "ratings",
+            "value": "1||5",
+            "area": "reviews"
+        }]
+    },
+    "build":{
+        "readme": "docs/readme.txt",
+        "license": "docs/license.txt",
+        "changelog": "docs/changelog.txt",
+        "resolver": {
+            "after": [
+                "tables.resolver.php",
+                "permissions.resolver.php",
+                "setupoptions.resolver.php",
+                "stercextra.resolver.php"
+            ]
+        },
+        "setupOptions":{
+            "source": "setup.options.php"
+        }
+    }
+}

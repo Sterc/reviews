@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'reviews',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'f7d519cc9a8eecffc351e2ad27a6a280',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '5a051f4e36af2bd5fd5b53caf5ea6c5a',
+  'native_key' => 'reviews.ratings',
+  'object' => '{"key":"reviews.ratings","value":"1||5","xtype":"textfield","namespace":"reviews","area":"reviews","editedon":null}',
+);

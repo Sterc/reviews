@@ -1,0 +1,147 @@
+<?php return array (
+  'unique_key' => 'category',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'related_objects' => 
+  array (
+    'Chunks' => 
+    array (
+      'a0cca66cec997d5f37f0301f5d7453bd' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modChunk',
+        'object' => '{"id":null,"source":0,"property_preprocess":0,"name":"reviewsItemTpl","description":"","editor_type":0,"category":0,"cache_type":0,"snippet":"<h3>[[%reviews.review_title? &topic=`default`&namespace=`reviews`&idx=`[[+idx]]`&total=`[[+total]]`]] [[+email:notempty=`<a href=\\"mailto:[[+email]]\\" title=\\"[[+name]]\\">[[+name]]<\\/a>`:empty=`[[+name]]`]]<\\/h3>\\n<p>[[+rating]]<\\/p>\\n[[+content:notempty=`<p>[[+content]]<p>`]]","locked":0,"properties":"a:0:{}","static":0,"static_file":"","content":"<h3>[[%reviews.review_title? &topic=`default`&namespace=`reviews`&idx=`[[+idx]]`&total=`[[+total]]`]] [[+email:notempty=`<a href=\\"mailto:[[+email]]\\" title=\\"[[+name]]\\">[[+name]]<\\/a>`:empty=`[[+name]]`]]<\\/h3>\\n<p>[[+rating]]<\\/p>\\n[[+content:notempty=`<p>[[+content]]<p>`]]"}',
+        'guid' => '3bfeea7d5fc8b2efc674f1498bd418a6',
+        'native_key' => NULL,
+        'signature' => '1f70118a3343a374e640997059733fb1',
+      ),
+      'e42f65cdbc1d602276651a36288531d1' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modChunk',
+        'object' => '{"id":null,"source":0,"property_preprocess":0,"name":"reviewsWrapperTpl","description":"","editor_type":0,"category":0,"cache_type":0,"snippet":"<div class=\\"row\\">\\n    <div class=\\"col-12 col-md-4\\">\\n        <ul>\\n            <li>5 [[%reviews.rating_5]]: [[+stats.5]]<\\/li>\\n            <li>4 [[%reviews.rating_4]] [[+stats.4]]<\\/li>\\n            <li>3 [[%reviews.rating_3]]: [[+stats.3]]<\\/li>\\n            <li>2 [[%reviews.rating_2]]: [[+stats.2]]<\\/li>\\n            <li>1 [[%reviews.rating_1]]: [[+stats.1]]<\\/li>\\n        <\\/ul>\\n    <\\/div>\\n    <div class=\\"col-12 col-md-8\\">\\n        <h2>[[%reviews.title? &total=`[[+total]]`]]<\\/h2>\\n        <p>[[+rating]]<\\/p>\\n        [[+output]]\\n    <\\/div>\\n<\\/div>","locked":0,"properties":"a:0:{}","static":0,"static_file":"","content":"<div class=\\"row\\">\\n    <div class=\\"col-12 col-md-4\\">\\n        <ul>\\n            <li>5 [[%reviews.rating_5]]: [[+stats.5]]<\\/li>\\n            <li>4 [[%reviews.rating_4]] [[+stats.4]]<\\/li>\\n            <li>3 [[%reviews.rating_3]]: [[+stats.3]]<\\/li>\\n            <li>2 [[%reviews.rating_2]]: [[+stats.2]]<\\/li>\\n            <li>1 [[%reviews.rating_1]]: [[+stats.1]]<\\/li>\\n        <\\/ul>\\n    <\\/div>\\n    <div class=\\"col-12 col-md-8\\">\\n        <h2>[[%reviews.title? &total=`[[+total]]`]]<\\/h2>\\n        <p>[[+rating]]<\\/p>\\n        [[+output]]\\n    <\\/div>\\n<\\/div>"}',
+        'guid' => '14c67edc469be02636f43d299652bb39',
+        'native_key' => NULL,
+        'signature' => '5a271b69252566105b530b84578a2098',
+      ),
+    ),
+    'Snippets' => 
+    array (
+      '18d8c9d191c3ca0686102c6a10c7f78c' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modSnippet',
+        'object' => '{"id":null,"source":0,"property_preprocess":0,"name":"Reviews","description":"","editor_type":0,"category":0,"cache_type":0,"snippet":"\\/**\\n * Reviews\\n *\\n * Copyright 2018 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>\\n *\\/\\n\\n$instance = $modx->getService(\'ReviewsSnippetReviews\', \'ReviewsSnippetReviews\', $modx->getOption(\'reviews.core_path\', null, $modx->getOption(\'core_path\') . \'components\\/reviews\\/\') . \'model\\/reviews\\/snippets\\/\');\\n\\nif ($instance instanceof ReviewsSnippetReviews) {\\n    return $instance->run($scriptProperties);\\n}\\n\\nreturn \'\';","locked":0,"properties":"a:0:{}","moduleguid":"","static":0,"static_file":"","content":"\\/**\\n * Reviews\\n *\\n * Copyright 2018 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>\\n *\\/\\n\\n$instance = $modx->getService(\'ReviewsSnippetReviews\', \'ReviewsSnippetReviews\', $modx->getOption(\'reviews.core_path\', null, $modx->getOption(\'core_path\') . \'components\\/reviews\\/\') . \'model\\/reviews\\/snippets\\/\');\\n\\nif ($instance instanceof ReviewsSnippetReviews) {\\n    return $instance->run($scriptProperties);\\n}\\n\\nreturn \'\';"}',
+        'guid' => 'f0fbabb383069dd8809becc83077cee7',
+        'native_key' => NULL,
+        'signature' => '7729c3b73877d40b46432243c8315f7e',
+      ),
+    ),
+  ),
+  'related_object_attributes' => 
+  array (
+    'Children' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 
+      array (
+        0 => 'parent',
+        1 => 'category',
+      ),
+    ),
+    'Snippets' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'Chunks' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'Templates' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'templatename',
+    ),
+    'TemplateVars' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'Plugins' => 
+    array (
+      'unique_key' => 'name',
+      'preserve_keys' => false,
+      'update_object' => true,
+      'related_objects' => true,
+      'related_object_attributes' => 
+      array (
+        'PluginEvents' => 
+        array (
+          'preserve_keys' => true,
+          'update_object' => false,
+          'unique_key' => 
+          array (
+            0 => 'pluginid',
+            1 => 'event',
+          ),
+        ),
+      ),
+    ),
+  ),
+  'namespace' => 'reviews',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/541f81aef876bdefb57a3ee7e217a7ef\\/0\\/","target":"return MODX_ASSETS_PATH . \'components\\/\';","name":"reviews"}',
+    ),
+    1 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/541f81aef876bdefb57a3ee7e217a7ef\\/1\\/","target":"return MODX_CORE_PATH . \'components\\/\';","name":"reviews"}',
+    ),
+    2 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/541f81aef876bdefb57a3ee7e217a7ef.tables.resolver.resolver","type":"php","name":"tables.resolver"}',
+    ),
+    3 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/541f81aef876bdefb57a3ee7e217a7ef.permissions.resolver.resolver","type":"php","name":"permissions.resolver"}',
+    ),
+    4 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/541f81aef876bdefb57a3ee7e217a7ef.setupoptions.resolver.resolver","type":"php","name":"setupoptions.resolver"}',
+    ),
+    5 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/541f81aef876bdefb57a3ee7e217a7ef.stercextra.resolver.resolver","type":"php","name":"stercextra.resolver"}',
+    ),
+  ),
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '9ea9a25633403f85630898c504dd6244',
+  'package' => 'modx',
+  'class' => 'modCategory',
+  'signature' => '541f81aef876bdefb57a3ee7e217a7ef',
+  'native_key' => NULL,
+  'object' => '{"id":null,"parent":0,"category":"Reviews","rank":0}',
+);
