@@ -21,10 +21,10 @@
   'validate' => NULL,
   'vehicle_package' => 'transport',
   'vehicle_class' => 'xPDOObjectVehicle',
-  'guid' => '97b7322d9b9cc4e0f95ce8ab919a0143',
+  'guid' => '20812b1ac795bc4ff8c0f8698917cd8a',
   'package' => 'modx',
   'class' => 'modMenu',
-  'signature' => 'd286d0e2dcde32daa3686fb9be6f0e45',
+  'signature' => '2385a999b17dcad9dc9f6c7690733ffa',
   'native_key' => 'reviews',
   'object' => '{"text":"reviews","parent":"components","action":"home","description":"reviews.desc","icon":"","menuindex":0,"params":"","handler":"","permissions":"reviews","namespace":"reviews"}',
 );

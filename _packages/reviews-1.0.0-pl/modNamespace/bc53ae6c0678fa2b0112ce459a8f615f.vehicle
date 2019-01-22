@@ -9,10 +9,10 @@
   'validate' => NULL,
   'vehicle_package' => 'transport',
   'vehicle_class' => 'xPDOObjectVehicle',
-  'guid' => 'f9f6499e619a0b03f23b6eeb04f55bc9',
+  'guid' => '395fa7064d9dd20bd8d2e90c39626086',
   'package' => 'modx',
   'class' => 'modNamespace',
-  'signature' => 'f8acf35268ca82af307a6bff02c2de53',
+  'signature' => 'bc53ae6c0678fa2b0112ce459a8f615f',
   'native_key' => 'reviews',
   'object' => '{"name":"reviews","path":"{core_path}components\\/reviews\\/","assets_path":"{assets_path}components\\/reviews\\/"}',
 );
