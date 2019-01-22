@@ -7,10 +7,10 @@
   'validate' => NULL,
   'vehicle_package' => 'transport',
   'vehicle_class' => 'xPDOObjectVehicle',
-  'guid' => 'ea2d1a59a19ca6eaf6a09a4912141fff',
+  'guid' => '199a49b649ef20d43c87e18f1dd729e7',
   'package' => 'modx',
   'class' => 'modSystemSetting',
-  'signature' => '00099571a27fe64de695adc1a96ef194',
+  'signature' => 'daaeaad0af19e78a39e066c6814f4fe6',
   'native_key' => 'reviews.branding_url_help',
   'object' => '{"key":"reviews.branding_url_help","value":"","xtype":"textfield","namespace":"reviews","area":"reviews","editedon":null}',
 );
