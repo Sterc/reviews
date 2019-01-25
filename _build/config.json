@@ -35,6 +35,33 @@
             "key": "ratings",
             "value": "1||5",
             "area": "reviews"
+        },{
+            "type": "combo-boolean",
+            "key": "use_editor",
+            "value": 0,
+            "area": "reviews_editor"
+        },{
+            "key": "editor_menubar",
+            "area": "reviews_editor"
+        },{
+            "key": "editor_plugins",
+            "value": "advlist autolink lists modximage charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste modxlink",
+            "area": "reviews_editor"
+        },{
+            "type": "combo-boolean",
+            "key": "editor_statusbar",
+            "value": 0,
+            "area": "reviews_editor"
+        },{
+            "key": "editor_toolbar1",
+            "value": "undo redo | bold italic | alignleft aligncenter alignright alignjustify | link",
+            "area": "reviews_editor"
+        },{
+            "key": "editor_toolbar2",
+            "area": "reviews_editor"
+        },{
+            "key": "editor_toolbar3",
+            "area": "reviews_editor"
         }]
     },
     "build":{

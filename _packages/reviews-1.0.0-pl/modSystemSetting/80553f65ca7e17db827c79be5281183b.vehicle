@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'reviews',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '4c128a9cbe348710076669820d230378',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '80553f65ca7e17db827c79be5281183b',
+  'native_key' => 'reviews.editor_toolbar2',
+  'object' => '{"key":"reviews.editor_toolbar2","value":"","xtype":"textfield","namespace":"reviews","area":"reviews_editor","editedon":null}',
+);

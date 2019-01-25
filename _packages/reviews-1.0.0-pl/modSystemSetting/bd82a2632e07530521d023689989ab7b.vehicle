@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'reviews',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'c84bd70d03060ff08b90055c475046af',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'bd82a2632e07530521d023689989ab7b',
+  'native_key' => 'reviews.editor_toolbar1',
+  'object' => '{"key":"reviews.editor_toolbar1","value":"undo redo | bold italic | alignleft aligncenter alignright alignjustify | link","xtype":"textfield","namespace":"reviews","area":"reviews_editor","editedon":null}',
+);

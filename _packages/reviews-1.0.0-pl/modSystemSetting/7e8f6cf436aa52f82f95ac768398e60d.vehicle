@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'reviews',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'b90fce8a50ed5f6efbcb1eadaa1bcbbd',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '7e8f6cf436aa52f82f95ac768398e60d',
+  'native_key' => 'reviews.editor_statusbar',
+  'object' => '{"key":"reviews.editor_statusbar","value":0,"xtype":"combo-boolean","namespace":"reviews","area":"reviews_editor","editedon":null}',
+);

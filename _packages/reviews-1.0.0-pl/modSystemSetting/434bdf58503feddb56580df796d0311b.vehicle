@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'reviews',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '222c278980eed695b3808f5602769019',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '434bdf58503feddb56580df796d0311b',
+  'native_key' => 'reviews.branding_url',
+  'object' => '{"key":"reviews.branding_url","value":"","xtype":"textfield","namespace":"reviews","area":"reviews","editedon":null}',
+);

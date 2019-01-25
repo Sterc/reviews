@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'reviews',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'fca62db8fb2c5e119229b8c4692835c9',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '0db22f39c85bfed94217ad613a94a7ab',
+  'native_key' => 'reviews.editor_plugins',
+  'object' => '{"key":"reviews.editor_plugins","value":"advlist autolink lists modximage charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste modxlink","xtype":"textfield","namespace":"reviews","area":"reviews_editor","editedon":null}',
+);
