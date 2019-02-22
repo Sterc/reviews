@@ -1,7 +1,7 @@
 # MODX Reviews
 ![Reviews version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg) ![MODX Extra by Sterc](https://img.shields.io/badge/extra%20by-sterc-magenta.svg) ![MODX version requirements](https://img.shields.io/badge/modx%20version%20requirement-2.4%2B-blue.svg)
 
-Install the Reviews extra to have central review management. Each review contains the following fields: name, email, what Resource is being reviewed, rating 0-5, review content, active true/false. The extra becomes available in the 'Extras' menu after installing and comes with a Reviews-snippet to easily show one or more reviews on a page and has default-chunks out of the box, which you can of course change if you wish. 
+Install the Reviews extra for central review management. Each review contains the following fields: name, email, what Resource is being reviewed, rating 0-5, review content, active true/false. The extra becomes available in the 'Extras' menu after installing and comes with a Reviews-snippet to easily show one or more reviews on a page and has default-chunks out of the box, which you can of course change if you wish. 
 
 ## Example snippet call
 

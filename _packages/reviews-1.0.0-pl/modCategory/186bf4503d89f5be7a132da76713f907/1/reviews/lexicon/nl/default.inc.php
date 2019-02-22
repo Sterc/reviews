@@ -7,17 +7,17 @@
  */
 
 $_lang['reviews']                                       = 'Reviews';
-$_lang['reviews.desc']                                  = 'Beheer hier reviews.';
+$_lang['reviews.desc']                                  = 'Beheer al je reviews.';
 
 $_lang['area_reviews']                                  = 'Reviews';
 $_lang['area_reviews_editor']                           = 'Reviews (rich text editor)';
 
 $_lang['setting_reviews.branding_url']                  = 'Branding';
-$_lang['setting_reviews.branding_url_desc']             = 'De URL waar de branding knop heen verwijst, indien leeg wordt de branding knop niet getoond.';
+$_lang['setting_reviews.branding_url_desc']             = 'De URL waar de branding knop naar verwijst. Indien leeg, dan wordt het niet getoond.';
 $_lang['setting_reviews.branding_url_help']             = 'Branding (help)';
-$_lang['setting_reviews.branding_url_help_desc']        = 'De URL waar de branding help knop heen verwijst, indien leeg wordt de branding help knop niet getoond.';
+$_lang['setting_reviews.branding_url_help_desc']        = 'De URL waar de branding help knop heen verwijst. Indien leeg, dan wordt het niet getoond.';
 $_lang['setting_reviews.ratings']                       = 'Beoordelingen';
-$_lang['setting_reviews.ratings_desc']                  = 'De min en max beoordeling wat gegeven kan worden. Standaard is "1||5".';
+$_lang['setting_reviews.ratings_desc']                  = 'De min en max beoordeling die gegeven kan worden: 0 tot 5 sterren.';
 $_lang['setting_reviews.use_editor']                    = 'Gebruik richt text editor';
 $_lang['setting_reviews.use_editor_desc']               = 'Gebruik een rich text editor voor de reviews.';
 $_lang['setting_reviews.editor_plugins']                = 'Plugins';
@@ -35,15 +35,15 @@ $_lang['setting_reviews.editor_statusbar_desc']         = 'De \'statusbar\' conf
 
 $_lang['reviews.review']                                = 'Review';
 $_lang['reviews.reviews']                               = 'Reviews';
-$_lang['reviews.reviews_desc']                          = 'Beheer alle reviews.';
-$_lang['reviews.review_create']                         = 'Nieuwe review';
-$_lang['reviews.review_update']                         = 'Review wijzigen';
-$_lang['reviews.review_remove']                         = 'Review verwijderen';
-$_lang['reviews.review_remove_confirm']                 = 'Weet je zeker dat je deze review wilt verwijderen? Hierdoor wordt hij ook niet meer in de statistieken meegenomen.';
-$_lang['reviews.review_activate']                       = 'Review activeren';
-$_lang['reviews.review_activate_confirm']               = 'Weet je zeker dat je deze review wilt activeren? Hierdoor wordt hij ook weer in de statistieken getoond.';
-$_lang['reviews.review_deactivate']                     = 'Review deactiveren';
-$_lang['reviews.review_deactivate_confirm']             = 'Weet je zeker dat je deze review wilt deactiveren? Hierdoor wordt hij ook niet meer in de statistieken getoond.';
+$_lang['reviews.reviews_desc']                          = 'Beheer al je reviews op één centrale plaats. Deze reviews kunnen aan iedere gewenste pagina gekoppeld worden.';
+$_lang['reviews.review_create']                         = 'Nieuw';
+$_lang['reviews.review_update']                         = 'Wijzigen';
+$_lang['reviews.review_remove']                         = 'Verwijderen';
+$_lang['reviews.review_remove_confirm']                 = 'Weet je zeker dat je deze review wil verwijderen? Hierdoor wordt hij ook niet meer in de statistieken meegenomen.';
+$_lang['reviews.review_activate']                       = 'Activeren';
+$_lang['reviews.review_activate_confirm']               = 'Weet je zeker dat je deze review wil activeren? Hierdoor wordt hij ook weer in de statistieken getoond.';
+$_lang['reviews.review_deactivate']                     = 'Deactiveren';
+$_lang['reviews.review_deactivate_confirm']             = 'Weet je zeker dat je deze review wil deactiveren? Hierdoor wordt hij ook niet meer in de statistieken getoond.';
 
 $_lang['reviews.label_resource']                        = 'Pagina';
 $_lang['reviews.label_resource_desc']                   = 'De pagina van de review.';

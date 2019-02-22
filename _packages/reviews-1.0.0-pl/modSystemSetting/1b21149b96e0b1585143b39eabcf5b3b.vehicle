@@ -7,10 +7,10 @@
   'validate' => NULL,
   'vehicle_package' => 'transport',
   'vehicle_class' => 'xPDOObjectVehicle',
-  'guid' => '932f4db971627c527b57022961237579',
+  'guid' => 'ee32a83713324235e26b5c404b5d2c55',
   'package' => 'modx',
   'class' => 'modSystemSetting',
-  'signature' => '3d2194d6d506a0dfb49f7ef73b9f188f',
+  'signature' => '1b21149b96e0b1585143b39eabcf5b3b',
   'native_key' => 'reviews.ratings',
   'object' => '{"key":"reviews.ratings","value":"1||5","xtype":"textfield","namespace":"reviews","area":"reviews","editedon":null}',
 );

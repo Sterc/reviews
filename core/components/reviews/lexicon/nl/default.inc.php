@@ -7,7 +7,7 @@
  */
 
 $_lang['reviews']                                       = 'Reviews';
-$_lang['reviews.desc']                                  = 'Beheer al je reviews op één centrale plaats. Deze reviews kunnen aan iedere gewenste pagina gekoppeld worden.';
+$_lang['reviews.desc']                                  = 'Beheer al je reviews.';
 
 $_lang['area_reviews']                                  = 'Reviews';
 $_lang['area_reviews_editor']                           = 'Reviews (rich text editor)';
@@ -35,7 +35,7 @@ $_lang['setting_reviews.editor_statusbar_desc']         = 'De \'statusbar\' conf
 
 $_lang['reviews.review']                                = 'Review';
 $_lang['reviews.reviews']                               = 'Reviews';
-$_lang['reviews.reviews_desc']                          = 'Beheer alle reviews.';
+$_lang['reviews.reviews_desc']                          = 'Beheer al je reviews op één centrale plaats. Deze reviews kunnen aan iedere gewenste pagina gekoppeld worden.';
 $_lang['reviews.review_create']                         = 'Nieuw';
 $_lang['reviews.review_update']                         = 'Wijzigen';
 $_lang['reviews.review_remove']                         = 'Verwijderen';

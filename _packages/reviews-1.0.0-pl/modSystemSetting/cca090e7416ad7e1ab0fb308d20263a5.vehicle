@@ -7,10 +7,10 @@
   'validate' => NULL,
   'vehicle_package' => 'transport',
   'vehicle_class' => 'xPDOObjectVehicle',
-  'guid' => 'fca62db8fb2c5e119229b8c4692835c9',
+  'guid' => 'ae1a08e27b17c796e590ca551d21595d',
   'package' => 'modx',
   'class' => 'modSystemSetting',
-  'signature' => '0db22f39c85bfed94217ad613a94a7ab',
+  'signature' => 'cca090e7416ad7e1ab0fb308d20263a5',
   'native_key' => 'reviews.editor_plugins',
   'object' => '{"key":"reviews.editor_plugins","value":"advlist autolink lists modximage charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste modxlink","xtype":"textfield","namespace":"reviews","area":"reviews_editor","editedon":null}',
 );

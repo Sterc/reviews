@@ -6,41 +6,41 @@
   array (
     'Chunks' => 
     array (
-      '4db6b04f39e2f074a6be9183add9eee3' => 
+      '704b8dba4d2225fac6e18839e36415a4' => 
       array (
         'preserve_keys' => false,
         'update_object' => true,
         'unique_key' => 'name',
         'class' => 'modChunk',
         'object' => '{"id":null,"source":0,"property_preprocess":0,"name":"reviewsItemTpl","description":"","editor_type":0,"category":0,"cache_type":0,"snippet":"<h3>[[%reviews.review_title? &topic=`default`&namespace=`reviews`&idx=`[[+idx]]`&total=`[[+total]]`]] [[+email:notempty=`<a href=\\"mailto:[[+email]]\\" title=\\"[[+name]]\\">[[+name]]<\\/a>`:empty=`[[+name]]`]]<\\/h3>\\n<p>[[+rating]]<\\/p>\\n[[+content]]","locked":0,"properties":"a:0:{}","static":0,"static_file":"","content":"<h3>[[%reviews.review_title? &topic=`default`&namespace=`reviews`&idx=`[[+idx]]`&total=`[[+total]]`]] [[+email:notempty=`<a href=\\"mailto:[[+email]]\\" title=\\"[[+name]]\\">[[+name]]<\\/a>`:empty=`[[+name]]`]]<\\/h3>\\n<p>[[+rating]]<\\/p>\\n[[+content]]"}',
-        'guid' => '24740c60c1a836a5553cb2bdab5d216e',
+        'guid' => '37b0e695d54bb4c152a3ac586e6f5150',
         'native_key' => NULL,
-        'signature' => 'da025c664432847de86b0f4e5b513ffc',
+        'signature' => '999173658f7e9b8bc580d8d12f0c3acb',
       ),
-      'eb45588e9e41d24ea3921c2896a83a3d' => 
+      '37a07fb640390e1fad3f4f708e8b906f' => 
       array (
         'preserve_keys' => false,
         'update_object' => true,
         'unique_key' => 'name',
         'class' => 'modChunk',
         'object' => '{"id":null,"source":0,"property_preprocess":0,"name":"reviewsWrapperTpl","description":"","editor_type":0,"category":0,"cache_type":0,"snippet":"<div class=\\"row\\">\\n    <div class=\\"col-12 col-md-4\\">\\n        <ul>\\n            <li>5 [[%reviews.rating_5]]: [[+stats.5]]<\\/li>\\n            <li>4 [[%reviews.rating_4]] [[+stats.4]]<\\/li>\\n            <li>3 [[%reviews.rating_3]]: [[+stats.3]]<\\/li>\\n            <li>2 [[%reviews.rating_2]]: [[+stats.2]]<\\/li>\\n            <li>1 [[%reviews.rating_1]]: [[+stats.1]]<\\/li>\\n        <\\/ul>\\n    <\\/div>\\n    <div class=\\"col-12 col-md-8\\">\\n        <h2>[[%reviews.title? &total=`[[+total]]`]]<\\/h2>\\n        <p>[[+rating]]<\\/p>\\n        [[+output]]\\n    <\\/div>\\n<\\/div>","locked":0,"properties":"a:0:{}","static":0,"static_file":"","content":"<div class=\\"row\\">\\n    <div class=\\"col-12 col-md-4\\">\\n        <ul>\\n            <li>5 [[%reviews.rating_5]]: [[+stats.5]]<\\/li>\\n            <li>4 [[%reviews.rating_4]] [[+stats.4]]<\\/li>\\n            <li>3 [[%reviews.rating_3]]: [[+stats.3]]<\\/li>\\n            <li>2 [[%reviews.rating_2]]: [[+stats.2]]<\\/li>\\n            <li>1 [[%reviews.rating_1]]: [[+stats.1]]<\\/li>\\n        <\\/ul>\\n    <\\/div>\\n    <div class=\\"col-12 col-md-8\\">\\n        <h2>[[%reviews.title? &total=`[[+total]]`]]<\\/h2>\\n        <p>[[+rating]]<\\/p>\\n        [[+output]]\\n    <\\/div>\\n<\\/div>"}',
-        'guid' => '723858b6ea6b50a0b012f9e78642b712',
+        'guid' => '1b4e50b337388c7f289799986ee823b4',
         'native_key' => NULL,
-        'signature' => 'c0eae265695f1814ff57789e30fe20c9',
+        'signature' => '31457da6ac8e934a711c5cc00f4800f1',
       ),
     ),
     'Snippets' => 
     array (
-      '1325586e6798375c00210df68058ace9' => 
+      'bc7b20040ef05acbbc0931917ceeb016' => 
       array (
         'preserve_keys' => false,
         'update_object' => true,
         'unique_key' => 'name',
         'class' => 'modSnippet',
         'object' => '{"id":null,"source":0,"property_preprocess":0,"name":"Reviews","description":"","editor_type":0,"category":0,"cache_type":0,"snippet":"\\/**\\n * Reviews\\n *\\n * Copyright 2018 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>\\n *\\/\\n\\n$instance = $modx->getService(\'ReviewsSnippetReviews\', \'ReviewsSnippetReviews\', $modx->getOption(\'reviews.core_path\', null, $modx->getOption(\'core_path\') . \'components\\/reviews\\/\') . \'model\\/reviews\\/snippets\\/\');\\n\\nif ($instance instanceof ReviewsSnippetReviews) {\\n    return $instance->run($scriptProperties);\\n}\\n\\nreturn \'\';","locked":0,"properties":"a:0:{}","moduleguid":"","static":0,"static_file":"","content":"\\/**\\n * Reviews\\n *\\n * Copyright 2018 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>\\n *\\/\\n\\n$instance = $modx->getService(\'ReviewsSnippetReviews\', \'ReviewsSnippetReviews\', $modx->getOption(\'reviews.core_path\', null, $modx->getOption(\'core_path\') . \'components\\/reviews\\/\') . \'model\\/reviews\\/snippets\\/\');\\n\\nif ($instance instanceof ReviewsSnippetReviews) {\\n    return $instance->run($scriptProperties);\\n}\\n\\nreturn \'\';"}',
-        'guid' => '5ea66d478ad74f428198d46c0f80827b',
+        'guid' => '77508e5298181c3c3d958a97a12b15c4',
         'native_key' => NULL,
-        'signature' => '4f80310c7aad508144b8ec5c66737d1a',
+        'signature' => 'ab9de47c3a60309504e9e785d137f12c',
       ),
     ),
   ),
@@ -107,41 +107,41 @@
     0 => 
     array (
       'type' => 'file',
-      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/483e2bf2dbf3f7aed19f26aa89854775\\/0\\/","target":"return MODX_ASSETS_PATH . \'components\\/\';","name":"reviews"}',
+      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/186bf4503d89f5be7a132da76713f907\\/0\\/","target":"return MODX_ASSETS_PATH . \'components\\/\';","name":"reviews"}',
     ),
     1 => 
     array (
       'type' => 'file',
-      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/483e2bf2dbf3f7aed19f26aa89854775\\/1\\/","target":"return MODX_CORE_PATH . \'components\\/\';","name":"reviews"}',
+      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/186bf4503d89f5be7a132da76713f907\\/1\\/","target":"return MODX_CORE_PATH . \'components\\/\';","name":"reviews"}',
     ),
     2 => 
     array (
       'type' => 'php',
-      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/483e2bf2dbf3f7aed19f26aa89854775.tables.resolver.resolver","type":"php","name":"tables.resolver"}',
+      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/186bf4503d89f5be7a132da76713f907.tables.resolver.resolver","type":"php","name":"tables.resolver"}',
     ),
     3 => 
     array (
       'type' => 'php',
-      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/483e2bf2dbf3f7aed19f26aa89854775.permissions.resolver.resolver","type":"php","name":"permissions.resolver"}',
+      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/186bf4503d89f5be7a132da76713f907.permissions.resolver.resolver","type":"php","name":"permissions.resolver"}',
     ),
     4 => 
     array (
       'type' => 'php',
-      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/483e2bf2dbf3f7aed19f26aa89854775.setupoptions.resolver.resolver","type":"php","name":"setupoptions.resolver"}',
+      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/186bf4503d89f5be7a132da76713f907.setupoptions.resolver.resolver","type":"php","name":"setupoptions.resolver"}',
     ),
     5 => 
     array (
       'type' => 'php',
-      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/483e2bf2dbf3f7aed19f26aa89854775.stercextra.resolver.resolver","type":"php","name":"stercextra.resolver"}',
+      'body' => '{"source":"reviews-1.0.0-pl\\/modCategory\\/186bf4503d89f5be7a132da76713f907.stercextra.resolver.resolver","type":"php","name":"stercextra.resolver"}',
     ),
   ),
   'validate' => NULL,
   'vehicle_package' => 'transport',
   'vehicle_class' => 'xPDOObjectVehicle',
-  'guid' => 'b86bd0311077e4c880206e225a34844d',
+  'guid' => '7240e0e4f6d5e077bc28b891fe572fa8',
   'package' => 'modx',
   'class' => 'modCategory',
-  'signature' => '483e2bf2dbf3f7aed19f26aa89854775',
+  'signature' => '186bf4503d89f5be7a132da76713f907',
   'native_key' => NULL,
   'object' => '{"id":null,"parent":0,"category":"Reviews","rank":0}',
 );

@@ -7,7 +7,7 @@
  */
 
 $_lang['reviews']                                       = 'Reviews';
-$_lang['reviews.desc']                                  = 'Manage all your reviews. Reviews can be added to any page you want.';
+$_lang['reviews.desc']                                  = 'Manage all your reviews.';
 
 $_lang['area_reviews']                                  = 'Reviews';
 $_lang['area_reviews_editor']                           = 'Reviews (rich text editor)';
@@ -35,7 +35,7 @@ $_lang['setting_reviews.editor_statusbar_desc']         = 'The \'statusbar\' con
 
 $_lang['reviews.review']                                = 'Review';
 $_lang['reviews.reviews']                               = 'Reviews';
-$_lang['reviews.reviews_desc']                          = 'Manage all reviews.';
+$_lang['reviews.reviews_desc']                          = 'Manage all your reviews. Reviews can be added to any page you want.';
 $_lang['reviews.review_create']                         = 'Create';
 $_lang['reviews.review_update']                         = 'Update';
 $_lang['reviews.review_remove']                         = 'Remove';
