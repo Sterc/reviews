@@ -28,3 +28,8 @@ Install the Reviews extra for central review management. Each review contains th
 | tplEmpty | [optional] This tpl is shown when no results are found. This can be a chunk , `@FILE` or `@INLINE` |
 | usePdoTools | [optional] Set to `true` to use pdoTools in the tpl's and enable fenom. (`@FILE` and `@INLINE` do not require this). Default: `false` |
 | usePdoElementsPath | [optional] Set to `true` to use the system setting `pdotools_elements_path` as a base-path for the @FILE includes. If `false`, it uses `core/components/reviews/`. Default: `false` |
+
+# Free Extra
+This is a free extra and the code is publicly available for you to change. The extra is being actively maintained and you're free to put in pull requests which match our roadmap. Please create an issue if the pull request differs from the roadmap so we can make sure we're on the same page.
+
+Need help? [Approach our support desk for paid premium support.](mailto:service@sterc.com)
