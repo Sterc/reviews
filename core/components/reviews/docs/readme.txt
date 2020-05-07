@@ -1,9 +1,7 @@
---------------------
-Snippet: Reviews
---------------------
-Author: Sterc <modx@sterc.nl>
-
-A simple reviews solution for MODx Revolution.
-
-Official Documentation:
-https://docs.modx.com/extras/revo/reviews
+----------------------
+Reviews
+----------------------
+Version: 1.2.0
+Author: Oene Tjeerd de Bruin
+Contact: oenetjeerd@sterc.nl
+----------------------

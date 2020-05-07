@@ -17,3 +17,8 @@
     border: none !important;
     color: #555555 !important;
 }
+
+.x-window .vertical-tabs-bwrap {
+    padding: 0;
+    box-shadow: none;
+}

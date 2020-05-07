@@ -14,14 +14,17 @@ class ReviewsSnippetReviews extends ReviewsSnippets
      * @access public.
      * @var Array.
      */
-    public $defaultProperties = [
+    public $properties = [
         'reviews'               => '',
-        'sort'                  => 'createdon',
-        'sortDir'               => 'DESC',
+
         'limit'                 => 0,
+        'where'                 => '{"active": "1"}',
+        'sortby'                => '{"createdon": "DESC"}',
+
         'tpl'                   => '@FILE elements/chunks/item.chunk.tpl',
         'tplWrapper'            => '@FILE elements/chunks/wrapper.chunk.tpl',
-        'tplEmpty'              => '',
+        'tplWrapperEmpty'       => '',
+
         'usePdoTools'           => false,
         'usePdoElementsPath'    => false
     ];
@@ -33,101 +36,125 @@ class ReviewsSnippetReviews extends ReviewsSnippets
      */
     public function run(array $properties = [])
     {
-        $this->properties = array_merge($this->defaultProperties, $properties);
+        $this->setProperties($properties);
 
         $output = [];
 
         $resourceId = $this->getProperty('id', $this->modx->resource->get('id'));
-        $reviewIds = array_filter(explode(',', $this->getProperty('reviews')));
+        $reviewIds  = array_filter(explode(',', $this->getProperty('reviews')));
+        $where      = json_decode($this->getProperty('where'), true);
+        $sortby     = json_decode($this->getProperty('sortby'), true);
+        $limit      = (int) $this->getProperty('limit');
 
         list($minRating, $maxRating) = explode('||', $this->config['ratings']);
 
-        $query = $this->modx->newQuery('ReviewsReview', [
-            'active' => 1
-        ]);
+        $criteria = $this->modx->newQuery('ReviewsReview');
+
+        if ($where) {
+            $criteria->where($where);
+        }
 
         if (count($reviewIds) >= 1) {
-            $query->where([
+            $criteria->where([
                 'id:IN' => $reviewIds
             ]);
         } else {
-            if (!empty($resourceId)) {
-                $query->where([
-                    'resource_id' => $resourceId
-                ]);
+            if ($this->config['resource_aware']) {
+                if (!empty($resourceId)) {
+                    $criteria->where([
+                        'resource_id' => $resourceId
+                    ]);
+                }
             }
         }
 
-        if (in_array(strtoupper($this->getProperty('sort')), ['RAND', 'RAND()'], true)) {
-            $query->sortby('RAND()');
-        } else {
-            $query->sortby($this->getProperty('sort'), $this->getProperty('sortDir'));
+        if ($sortby) {
+            foreach ((array) $sortby as $key => $value) {
+                if (in_array($value, ['RAND', 'RAND()'], true)) {
+                    $criteria->sortby('RAND()');
+                } else {
+                    $criteria->sortby($key, $value);
+                }
+            }
         }
 
-        if (!empty($this->getProperty('limit'))) {
-             $query->limit($this->getProperty('limit'));
+        if ($limit > 1) {
+            $criteria->limit($limit);
         }
 
         $idx            = 1;
-        $rating         = 0;
+        $average        = 0;
         $totalRating    = 0;
-        $totalRatings   = $this->modx->getCount('ReviewsReview', $query);
-        $stats          = [];
-        $worstRating    = 0;
-        $bestRating     = 0;
+        $totalRatings   = $this->modx->getCount('ReviewsReview', $criteria);
+        $ratingTypes    = [];
+        $ratingStats    = [];
+        $minRating      = 1;
+        $maxRating      = 1;
 
-        for ($i = (int) $minRating; $i <= (int) $maxRating; $i++) {
-            $stats[$i] = 0;
+        foreach ($this->getRatings() as $rating) {
+            $ratingTypes[(int) $rating['id']] = $rating;
+            $ratingStats[(int) $rating['id']] = array_merge($rating, [
+                'value' => 0
+            ]);
         }
 
-        foreach ($this->modx->getCollection('ReviewsReview', $query) as $review) {
-            $stats[$review->get('rating')]++;
-            $totalRating += (int) $review->get('rating');
-
-            $content = $review->get('content');
-
-            if (preg_match('/^<(i|em|b|strong|a)(.*?)>/si', $content)) {
-                $content = '<p>' . $content . '</p>';
-            }
+        foreach ($this->modx->getCollection('ReviewsReview', $criteria) as $review) {
+            $totalRating += (int) $review->getAverage();
 
             $output[] = $this->getChunk($this->getProperty('tpl'), array_merge($review->toArray(), [
-                'idx'       => $idx,
-                'minRating' => $minRating,
-                'maxRating' => $maxRating,
-                'total'     => $totalRatings,
-                'content'   => $content
+                'idx'           => $idx,
+                'averageRating' => (int) $review->getAverage(),
+                'totalRatings'  => $totalRatings,
+                'ratings'       => $review->getRatings(),
+                'ratingTypes'   => $ratingTypes,
+                'content'       => $review->getContent()
             ]));
 
-            if ((int) $review->get('rating') < $worstRating) {
-                $worstRating = (int) $review->get('rating');
-            } else if ((int) $review->get('rating') > $bestRating) {
-                $bestRating = (int) $review->get('rating');
+            if ((int) $review->getAverage() < $minRating) {
+                $minRating = (int) $review->getAverage();
+            } else if ((int) $review->getAverage() > $maxRating) {
+                $maxRating = (int) $review->getAverage();
+            }
+
+            foreach ((array) $review->getRatings() as $key => $rating) {
+                $ratingStats[(int) $key]['value'] += (int) $rating;
             }
 
             $idx++;
         }
 
-        if (empty($output) && !empty($this->getProperty('tplEmpty'))) {
-            return $this->getChunk($this->getProperty('tplEmpty'));
-        }
-
         if ($totalRating >= 1 && $totalRatings >= 1) {
-            $rating = round((int) ($totalRating / $totalRatings));
+            $average = ceil($totalRating / $totalRatings);
         }
 
-        if (!empty($this->getProperty('tplWrapper'))) {
-            return $this->getChunk($this->getProperty('tplWrapper'), [
-                'output'        => implode(PHP_EOL, $output),
-                'rating'        => $rating,
-                'minRating'     => $minRating,
-                'maxRating'     => $maxRating,
-                'worstRating'   => $worstRating,
-                'bestRating'    => $bestRating,
-                'stats'         => $stats,
-                'total'         => $totalRatings
-            ]);
+        foreach ($ratingStats as $key => $value) {
+            $ratingStats[$key]['value'] = ceil($value['value'] / $totalRatings);
         }
 
-        return implode(PHP_EOL, $output);
+        if (!empty($output)) {
+            $tplWrapper = $this->getProperty('tplWrapper');
+
+            if (!empty($tplWrapper)) {
+                return $this->getChunk($tplWrapper, [
+                    'output'        => implode(PHP_EOL, $output),
+                    'average'       => $average,
+                    'minRating'     => $minRating,
+                    'maxRating'     => $maxRating,
+                    'ratingTypes'   => $ratingTypes,
+                    'ratingStats'   => $ratingStats,
+                    'total'         => $totalRatings
+                ]);
+            }
+
+            return implode(PHP_EOL, $output);
+        }
+
+        $tplWrapperEmpty = $this->getProperty('tplWrapperEmpty');
+
+        if (!empty($tplWrapperEmpty)) {
+            return $this->getChunk($tplWrapperEmpty);
+        }
+
+        return '';
     }
 }

@@ -15,13 +15,17 @@ class ReviewsHomeManagerController extends ReviewsManagerController
      */
     public function loadCustomCssJs()
     {
-        $this->addCss($this->modx->reviews->config['css_url'] . 'mgr/reviews.css');
-
         $this->addJavascript($this->modx->reviews->config['js_url'] . 'mgr/widgets/home.panel.js');
 
         $this->addJavascript($this->modx->reviews->config['js_url'] . 'mgr/widgets/reviews.grid.js');
 
         $this->addLastJavascript($this->modx->reviews->config['js_url'] . 'mgr/sections/home.js');
+
+        $this->addHtml('<script type="text/javascript">
+            Ext.onReady(function() {
+                Reviews.config.ratings = ' . $this->modx->toJSON($this->modx->reviews->getRatings()) . ';
+            });
+        </script>');
     }
 
     /**
@@ -40,28 +44,5 @@ class ReviewsHomeManagerController extends ReviewsManagerController
     public function getTemplateFile()
     {
         return $this->modx->reviews->config['templates_path'] . 'home.tpl';
-    }
-
-    /**
-     * @access public.
-     * @param Array $scriptProperties.
-     */
-    public function process(array $scriptProperties = [])
-    {
-        $useEditor = $this->modx->getOption('use_editor');
-        $whichEditor = $this->modx->getOption('which_editor');
-
-        if ($useEditor && !empty($whichEditor)) {
-            $onRichTextEditorInit = $this->modx->invokeEvent('OnRichTextEditorInit', [
-                'editor'    => $whichEditor,
-                'elements'  => []
-            ]);
-
-            if (is_array($onRichTextEditorInit)) {
-                $onRichTextEditorInit = implode('', $onRichTextEditorInit);
-            }
-
-            $this->setPlaceholder('onRichTextEditorInit', $onRichTextEditorInit);
-        }
     }
 }

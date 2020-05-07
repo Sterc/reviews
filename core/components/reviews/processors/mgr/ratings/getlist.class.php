@@ -6,25 +6,25 @@
  * Copyright 2018 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>
  */
 
-class ReviewsReviewsGetListProcessor extends modObjectGetListProcessor
+class ReviewsRatingGetListProcessor extends modObjectGetListProcessor
 {
     /**
      * @access public.
      * @var String.
      */
-    public $classKey = 'ReviewsReview';
+    public $classKey = 'ReviewsRating';
 
     /**
      * @access public.
      * @var Array.
      */
-    public $languageTopics = ['reviews:default'];
+    public $languageTopics = ['reviews:default', 'reviews:ratings', 'base:default', 'site:default'];
 
     /**
      * @access public.
      * @var String.
      */
-    public $defaultSortField = 'Review.name';
+    public $defaultSortField = 'menuindex';
 
     /**
      * @access public.
@@ -36,7 +36,7 @@ class ReviewsReviewsGetListProcessor extends modObjectGetListProcessor
      * @access public.
      * @var String.
      */
-    public $objectType = 'reviews.review';
+    public $objectType = 'reviews.rating';
 
     /**
      * @access public.
@@ -60,28 +60,11 @@ class ReviewsReviewsGetListProcessor extends modObjectGetListProcessor
      */
     public function prepareQueryBeforeCount(xPDOQuery $criteria)
     {
-        $criteria->setClassAlias('Review');
-
-        $criteria->select($this->modx->getSelectColumns('ReviewsReview', 'Review'));
-        $criteria->select($this->modx->getSelectColumns('modResource', 'Resource', 'resource_', ['id', 'pagetitle']));
-
-        $criteria->leftJoin('modResource', 'Resource');
-
         $query = $this->getProperty('query');
 
         if (!empty($query)) {
             $criteria->where([
-                'Review.name:LIKE'              => '%' . $query . '%',
-                'OR:Review.email:LIKE'          => '%' . $query . '%',
-                'OR:Resource.pagetitle:LIKE'    => '%' . $query . '%'
-            ]);
-        }
-
-        $resourceId = $this->getProperty('resource_id');
-
-        if (!empty($resourceId)) {
-            $criteria->where([
-                'Review.resource_id' => $resourceId
+                'name:LIKE' => '%' . $query . '%'
             ]);
         }
 
@@ -96,14 +79,8 @@ class ReviewsReviewsGetListProcessor extends modObjectGetListProcessor
     public function prepareRow(xPDOObject $object)
     {
         $array = array_merge($object->toArray(), [
-            'ratings'                       => $object->getRatings(),
-            'average'                       => $object->getAverage(),
-            'resource_pagetitle_formatted'  => $this->modx->lexicon('reviews.no_resource')
+            'name_formatted' => $object->getName()
         ]);
-
-        if (!empty($object->get('resource_pagetitle'))) {
-            $array['resource_pagetitle_formatted'] = $object->get('resource_pagetitle') . ($this->modx->hasPermission('tree_show_resource_ids') ? ' (' . $object->get('resource_id') . ')' : '');
-        }
 
         if (in_array($object->get('editedon'), ['-001-11-30 00:00:00', '-1-11-30 00:00:00', '0000-00-00 00:00:00', null], true)) {
             $array['editedon'] = '';
@@ -115,4 +92,4 @@ class ReviewsReviewsGetListProcessor extends modObjectGetListProcessor
     }
 }
 
-return 'ReviewsReviewsGetListProcessor';
+return 'ReviewsRatingGetListProcessor';

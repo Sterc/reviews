@@ -10,7 +10,7 @@ class Reviews
 {
     /**
      * @access public.
-     * @var Object.
+     * @var modX.
      */
     public $modx;
 
@@ -35,7 +35,7 @@ class Reviews
 
         $this->config = array_merge([
             'namespace'             => 'reviews',
-            'lexicons'              => ['reviews:default'],
+            'lexicons'              => ['reviews:default', 'reviews:ratings', 'base:default', 'site:default'],
             'base_path'             => $corePath,
             'core_path'             => $corePath,
             'model_path'            => $corePath . 'model/',
@@ -50,10 +50,16 @@ class Reviews
             'css_url'               => $assetsUrl . 'css/',
             'assets_url'            => $assetsUrl,
             'connector_url'         => $assetsUrl . 'connector.php',
-            'version'               => '1.0.0',
+            'version'               => '1.2.0',
             'branding_url'          => $this->modx->getOption('reviews.branding_url'),
             'branding_help_url'     => $this->modx->getOption('reviews.branding_url_help'),
-            'ratings'               => $this->modx->getOption('reviews.ratings', null, '1||5')
+            'rating_scale'          => $this->modx->getOption('reviews.ratings', null, '1||5'),
+            'include_resources'     => json_decode($this->modx->getOption('reviews.include_resources', null, '[]'), true),
+            'resource_aware'        => (bool) $this->modx->getOption('reviews.resource_aware', null, false),
+            'permissions'           => [
+                'admin'                 => $this->modx->hasPermission('reviews_admin')
+            ],
+            'use_editor'            => (bool) $this->modx->getOption('reviews.use_editor', null, false)
         ], $config);
 
         $this->modx->addPackage('reviews', $this->config['model_path']);
@@ -110,10 +116,36 @@ class Reviews
             return $options[$key];
         }
 
-        if ($this->config[$key]) {
+        if (isset($this->config[$key])) {
             return $this->config[$key];
         }
 
         return $this->modx->getOption($this->config['namespace'] . '.' . $key, $options, $default);
+    }
+
+    /**
+     * @access public.
+     * @return Array.
+     */
+    public function getRatings()
+    {
+        $ratings = [];
+
+        $criteria = $this->modx->newQuery('ReviewsRating');
+
+        $criteria->where([
+            'active' => 1
+        ]);
+
+        $criteria->sortby('menuindex', 'ASC');
+
+        foreach ($this->modx->getCollection('ReviewsRating', $criteria) as $rating) {
+            $ratings[] = [
+                'id'    => $rating->get('id'),
+                'name'  => $rating->getName()
+            ];
+        }
+
+        return $ratings;
     }
 }

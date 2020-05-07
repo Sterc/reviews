@@ -73,6 +73,30 @@ class ReviewsResourcesGetListProcessor extends modObjectGetListProcessor
             ]);
         }
 
+        foreach ((array) $this->modx->reviews->getOption('include_resources') as $key => $value) {
+            if ($key === 'context') {
+                $key = 'context_key';
+            }
+
+            if (array_key_exists($key, $this->modx->getFields('modResource'))) {
+                if (!is_array($value) && strpos($value, ',')) {
+                    $value = explode(',', trim($value, ','));
+                }
+
+                if (is_array($value)) {
+                    $value = array_filter($value);
+
+                    $criteria->where([
+                        $key . ':IN' => $value
+                    ]);
+                } else {
+                    $criteria->where([
+                        $key => $value
+                    ]);
+                }
+            }
+        }
+
         return $criteria;
     }
 

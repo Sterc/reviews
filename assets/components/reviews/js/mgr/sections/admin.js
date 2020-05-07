@@ -1,10 +1,10 @@
 Ext.onReady(function() {
     MODx.load({
-        xtype : 'reviews-page-home'
+        xtype : 'reviews-page-admin'
     });
 });
 
-Reviews.page.Home = function(config) {
+Reviews.page.Admin = function(config) {
     config = config || {};
 
     config.buttons = [];
@@ -17,13 +17,11 @@ Reviews.page.Home = function(config) {
         });
     }
 
-    if (Reviews.config.permissions.admin) {
-        config.buttons.push({
-            text        : '<i class="icon icon-cogs"></i>' + _('reviews.admin_view'),
-            handler     : this.toAdminView,
-            scope       : this
-        });
-    }
+    config.buttons.push({
+        text        : '<i class="icon icon-cogs"></i>' + _('reviews.default_view'),
+        handler     : this.toDefaultView,
+        scope       : this
+    });
 
     if (Reviews.config.branding_url_help) {
         config.buttons.push({
@@ -35,21 +33,21 @@ Reviews.page.Home = function(config) {
 
     Ext.applyIf(config, {
         components  : [{
-            xtype       : 'reviews-panel-home',
-            renderTo    : 'reviews-panel-home-div'
+            xtype       : 'reviews-panel-admin',
+            renderTo    : 'reviews-panel-admin-div'
         }]
     });
 
-    Reviews.page.Home.superclass.constructor.call(this, config);
+    Reviews.page.Admin.superclass.constructor.call(this, config);
 };
 
-Ext.extend(Reviews.page.Home, MODx.Component, {
+Ext.extend(Reviews.page.Admin, MODx.Component, {
     loadBranding: function(btn) {
         window.open(Reviews.config.branding_url);
     },
-    toAdminView : function() {
-        MODx.loadPage('admin', 'namespace=' + MODx.request.namespace);
+    toDefaultView : function() {
+        MODx.loadPage('home', 'namespace=' + MODx.request.namespace);
     }
 });
 
-Ext.reg('reviews-page-home', Reviews.page.Home);
+Ext.reg('reviews-page-admin', Reviews.page.Admin);

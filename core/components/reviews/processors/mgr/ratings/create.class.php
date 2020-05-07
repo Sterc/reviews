@@ -6,13 +6,13 @@
  * Copyright 2018 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>
  */
 
-class ReviewsReviewCreateProcessor extends modObjectCreateProcessor
+class ReviewsRatingCreateProcessor extends modObjectCreateProcessor
 {
     /**
      * @access public.
      * @var String.
      */
-    public $classKey = 'ReviewsReview';
+    public $classKey = 'ReviewsRating';
 
     /**
      * @access public.
@@ -24,7 +24,7 @@ class ReviewsReviewCreateProcessor extends modObjectCreateProcessor
      * @access public.
      * @var String.
      */
-    public $objectType = 'reviews.review';
+    public $objectType = 'reviews.rating';
 
     /**
      * @access public.
@@ -47,23 +47,31 @@ class ReviewsReviewCreateProcessor extends modObjectCreateProcessor
      */
     public function beforeSave()
     {
+        $this->setMenuIndex();
+
         $this->object->set('createdon', date('Y-m-d H:i:s'));
-
-        foreach ((array) $this->getProperty('rating', []) as $key => $value) {
-            $rating = $this->modx->newObject('ReviewsReviewRating');
-
-            if ($rating) {
-                $rating->fromArray([
-                    'rating_id' => (int) $key,
-                    'value'     => (int) $value
-                ]);
-
-                $this->object->addMany($rating);
-            }
-        }
 
         return parent::beforeSave();
     }
+
+    /**
+     * @access private.
+     */
+    private function setMenuIndex()
+    {
+        $criteria = $this->modx->newQuery($this->classKey);
+
+        $criteria->sortby('menuindex', 'DESC');
+        $criteria->limit(1);
+
+        $object = $this->modx->getObject($this->classKey, $criteria);
+
+        if ($object) {
+            $this->object->set('menuindex', (int) $object->get('menuindex') + 1);
+        } else {
+            $this->object->set('menuindex', 0);
+        }
+    }
 }
 
-return 'ReviewsReviewCreateProcessor';
+return 'ReviewsRatingCreateProcessor';

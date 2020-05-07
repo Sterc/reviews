@@ -12,6 +12,11 @@ $permissions = [[
     'name'          => 'reviews',
     'description'   => 'To view the Reviews package.',
     'templates'     => ['AdministratorTemplate']
+], [
+    'name'          => 'reviews_admin',
+    'description'   => 'To view the Reviews package, admin part.',
+    'templates'     => ['AdministratorTemplate'],
+    'policies'      => ['Administrator']
 ]];
 
 $success = false;

@@ -14,7 +14,9 @@ if ($object->xpdo) {
 
             $manager = $modx->getManager();
 
+            $manager->createObjectContainer('ReviewsRating');
             $manager->createObjectContainer('ReviewsReview');
+            $manager->createObjectContainer('ReviewsReviewRating');
 
             break;
     }

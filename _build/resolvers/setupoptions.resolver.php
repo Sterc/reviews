@@ -17,14 +17,17 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
     case xPDOTransport::ACTION_UPGRADE:
         foreach ($settings as $key) {
             if (isset($options[$key])) {
-                $setting = $modx->getObject('modSystemSetting', [
+                $setting = $object->xpdo->getObject('modSystemSetting', [
                     'key' => strtolower($package) . '.' . $key
                 ]);
 
-                if ($setting) {
-                    $setting->set('value', $options[$key]);
-                    $setting->save();
+                if (!$setting) {
+                    $setting = $object->xpdo->newObject('modSystemSetting');
+                    $setting->set('key', strtolower($package) . '.' . $key);
                 }
+
+                $setting->set('value', $options[$key]);
+                $setting->save();
             }
         }
 

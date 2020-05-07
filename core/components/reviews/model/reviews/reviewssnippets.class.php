@@ -19,6 +19,16 @@ class ReviewsSnippets extends Reviews
     /**
      * @access public.
      * @param String $key.
+     * @param Mixed $value.
+     */
+    public function setProperty($key, $value)
+    {
+        $this->properties[$key] = $value;
+    }
+
+    /**
+     * @access public.
+     * @param String $key.
      * @param Mixed $default.
      * @return Mixed.
      */
@@ -29,6 +39,26 @@ class ReviewsSnippets extends Reviews
         }
 
         return $default;
+    }
+
+    /**
+     * @access public.
+     * @param Array $properties.
+     */
+    public function setProperties(array $properties = [])
+    {
+        foreach ($properties as $key => $value) {
+            $this->setProperty($key, $value);
+        }
+    }
+
+    /**
+     * @access public.
+     * @return Array.
+     */
+    public function getProperties()
+    {
+        return $this->properties;
     }
 
     /**

@@ -6,18 +6,16 @@
  * Copyright 2018 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>
  */
 
-$xpdo_meta_map['ReviewsReview'] = [
+$xpdo_meta_map['ReviewsRating'] = [
     'package'       => 'review',
     'version'       => '1.0',
-    'table'         => 'reviews_review',
+    'table'         => 'reviews_rating',
     'extends'       => 'xPDOSimpleObject',
     'fields'        => [
         'id'            => null,
-        'resource_id'   => null,
-        'name'          => null,
-        'email'         => null,
-        'content'       => null,
+        'name'          => '',
         'active'        => null,
+        'menuindex'     => null,
         'createdon'     => null,
         'editedon'      => null
     ],
@@ -30,28 +28,9 @@ $xpdo_meta_map['ReviewsReview'] = [
             'index'         => 'pk',
             'generated'     => 'native'
         ],
-        'resource_id'   => [
-            'dbtype'        => 'int',
-            'precision'     => '11',
-            'phptype'       => 'integer',
-            'null'          => false
-        ],
         'name'          => [
             'dbtype'        => 'varchar',
             'precision'     => '75',
-            'phptype'       => 'string',
-            'null'          => false,
-            'default'       => ''
-        ],
-        'email'         => [
-            'dbtype'        => 'varchar',
-            'precision'     => '255',
-            'phptype'       => 'string',
-            'null'          => false,
-            'default'       => ''
-        ],
-        'content'       => [
-            'dbtype'        => 'text',
             'phptype'       => 'string',
             'null'          => false,
             'default'       => ''
@@ -62,6 +41,12 @@ $xpdo_meta_map['ReviewsReview'] = [
             'precision'     => '1',
             'null'          => false,
             'default'       => 1
+        ],
+        'menuindex'	     => [
+            'dbtype'        => 'int',
+            'precision'     => '11',
+            'phptype'       => 'integer',
+            'null'          => false
         ],
         'createdon'     => [
             'dbtype'        => 'timestamp',
@@ -88,22 +73,6 @@ $xpdo_meta_map['ReviewsReview'] = [
                     'null'          => false
                 ]
             ]
-        ]
-    ],
-    'aggregates'    =>  [
-        'Resource'      => [
-            'local'         => 'resource_id',
-            'class'         => 'modResource',
-            'foreign'       => 'id',
-            'owner'         => 'local',
-            'cardinality'   => 'one'
-        ],
-        'Rating'        => [
-            'local'         => 'id',
-            'class'         => 'ReviewsReviewRating',
-            'foreign'       => 'review_id',
-            'owner'         => 'local',
-            'cardinality'   => 'many'
         ]
     ]
 ];

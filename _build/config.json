@@ -3,7 +3,7 @@
     "lowCaseName": "reviews",
     "description": "A reviews solution for MODX Revolution.",
     "author": "Sterc",
-    "version": "1.0.0-pl",
+    "version": "1.2.0-pl",
     "package":{
         "menus": [{
             "text": "reviews",
@@ -22,7 +22,28 @@
             }],
             "snippets": [{
                 "name": "Reviews",
-                "file": "reviews.snippet.php"
+                "file": "reviews.snippet.php",
+                "properties": [{
+                    "name": "limit",
+                    "value": "10",
+                    "description": "reviews.snippet_limit_desc"
+                },{
+                    "name": "where",
+                    "value": "{\"active\": \"1\"}",
+                    "description": "reviews.snippet_where_desc"
+                },{
+                    "name": "sortby",
+                    "value": "{\"createdon\": \"DESC\"}",
+                    "description": "reviews.snippet_sortby_desc"
+                },{
+                    "name": "tpl",
+                    "value": "@FILE elements/chunks/item.chunk.tpl",
+                    "description": "reviews.snippet_tpl_desc"
+                },{
+                    "name": "tplWrapper",
+                    "value": "@FILE elements/chunks/wrapper.chunk.tpl",
+                    "description": "reviews.snippet_tplwrapper_desc"
+                }]
             }]
         },
         "systemSettings": [{
@@ -39,29 +60,16 @@
             "type": "combo-boolean",
             "key": "use_editor",
             "value": 0,
-            "area": "reviews_editor"
+            "area": "reviews"
         },{
-            "key": "editor_menubar",
-            "area": "reviews_editor"
-        },{
-            "key": "editor_plugins",
-            "value": "advlist autolink lists modximage charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste modxlink",
-            "area": "reviews_editor"
+            "key": "include_resources",
+            "value": "{}",
+            "area": "reviews"
         },{
             "type": "combo-boolean",
-            "key": "editor_statusbar",
-            "value": 0,
-            "area": "reviews_editor"
-        },{
-            "key": "editor_toolbar1",
-            "value": "undo redo | bold italic | alignleft aligncenter alignright alignjustify | link",
-            "area": "reviews_editor"
-        },{
-            "key": "editor_toolbar2",
-            "area": "reviews_editor"
-        },{
-            "key": "editor_toolbar3",
-            "area": "reviews_editor"
+            "key": "resource_aware",
+            "value": 1,
+            "area": "reviews"
         }]
     },
     "build":{

@@ -16,6 +16,8 @@ abstract class ReviewsManagerController extends modExtraManagerController
     {
         $this->modx->getService('reviews', 'Reviews', $this->modx->getOption('reviews.core_path', null, $this->modx->getOption('core_path') . 'components/reviews/') . 'model/reviews/');
 
+        $this->addCss($this->modx->reviews->config['css_url'] . 'mgr/reviews.css');
+
         $this->addJavascript($this->modx->reviews->config['js_url'] . 'mgr/reviews.js');
 
         $this->addHtml('<script type="text/javascript">

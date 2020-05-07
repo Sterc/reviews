@@ -8,6 +8,8 @@
 
 $xpdo_meta_map = [
     'xPDOSimpleObject' => [
-        'ReviewsReview'
+        'ReviewsReview',
+        'ReviewsReviewRating',
+        'ReviewsRating'
     ]
 ];
