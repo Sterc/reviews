@@ -68,7 +68,7 @@
         },{
             "type": "combo-boolean",
             "key": "resource_aware",
-            "value": 1,
+            "value": 0,
             "area": "reviews"
         }]
     },

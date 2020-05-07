@@ -3,7 +3,7 @@
 /**
  * Reviews
  *
- * Copyright 2018 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>
+ * Copyright 2020 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>
  */
 
 abstract class ReviewsManagerController extends modExtraManagerController
@@ -19,6 +19,8 @@ abstract class ReviewsManagerController extends modExtraManagerController
         $this->addCss($this->modx->reviews->config['css_url'] . 'mgr/reviews.css');
 
         $this->addJavascript($this->modx->reviews->config['js_url'] . 'mgr/reviews.js');
+
+        $this->addJavascript($this->modx->reviews->config['js_url'] . 'mgr/extras/extras.js');
 
         $this->addHtml('<script type="text/javascript">
             Ext.onReady(function() {

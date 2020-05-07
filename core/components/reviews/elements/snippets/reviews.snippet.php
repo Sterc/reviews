@@ -2,7 +2,7 @@
 /**
  * Reviews
  *
- * Copyright 2018 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>
+ * Copyright 2020 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>
  */
 
 $class = $modx->loadClass('ReviewsSnippetReviews', $modx->getOption('reviews.core_path', null, $modx->getOption('core_path') . 'components/reviews/') . 'model/reviews/snippets/', false, true);

@@ -3,7 +3,7 @@
 /**
  * Reviews
  *
- * Copyright 2018 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>
+ * Copyright 2020 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>
  */
 
 require_once dirname(__DIR__) . '/reviewssnippets.class.php';
@@ -88,8 +88,6 @@ class ReviewsSnippetReviews extends ReviewsSnippets
         $totalRatings   = $this->modx->getCount('ReviewsReview', $criteria);
         $ratingTypes    = [];
         $ratingStats    = [];
-        $minRating      = 1;
-        $maxRating      = 1;
 
         foreach ($this->getRatings() as $rating) {
             $ratingTypes[(int) $rating['id']] = $rating;
@@ -109,12 +107,6 @@ class ReviewsSnippetReviews extends ReviewsSnippets
                 'ratingTypes'   => $ratingTypes,
                 'content'       => $review->getContent()
             ]));
-
-            if ((int) $review->getAverage() < $minRating) {
-                $minRating = (int) $review->getAverage();
-            } else if ((int) $review->getAverage() > $maxRating) {
-                $maxRating = (int) $review->getAverage();
-            }
 
             foreach ((array) $review->getRatings() as $key => $rating) {
                 $ratingStats[(int) $key]['value'] += (int) $rating;

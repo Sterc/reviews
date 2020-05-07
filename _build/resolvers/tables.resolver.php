@@ -17,8 +17,17 @@ if ($object->xpdo) {
             $manager->createObjectContainer('ReviewsRating');
             $manager->createObjectContainer('ReviewsReview');
             $manager->createObjectContainer('ReviewsReviewRating');
+        case xPDOTransport::ACTION_UPGRADE:
+            $modx =& $object->xpdo;
+            $modx->addPackage('reviews', $modx->getOption('reviews.core_path', null, $modx->getOption('core_path') . 'components/reviews/') . 'model/');
 
-            break;
+            $manager = $modx->getManager();
+
+            $manager->createObjectContainer('ReviewsRating');
+            $manager->createObjectContainer('ReviewsReview');
+            $manager->createObjectContainer('ReviewsReviewRating');
+
+            $manager->removeField('ReviewsReview', 'rating');
     }
 }
 

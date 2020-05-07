@@ -3,7 +3,7 @@
 /**
  * Reviews
  *
- * Copyright 2018 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>
+ * Copyright 2020 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>
  */
 
 require_once dirname(dirname(dirname(__DIR__))) . '/config.core.php';
