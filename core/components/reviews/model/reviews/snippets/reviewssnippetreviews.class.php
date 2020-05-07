@@ -46,7 +46,7 @@ class ReviewsSnippetReviews extends ReviewsSnippets
         $sortby     = json_decode($this->getProperty('sortby'), true);
         $limit      = (int) $this->getProperty('limit');
 
-        list($minRating, $maxRating) = explode('||', $this->config['ratings']);
+        list($minRating, $maxRating) = explode('||', $this->config['rating_scale']);
 
         $criteria = $this->modx->newQuery('ReviewsReview');
 
