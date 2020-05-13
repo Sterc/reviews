@@ -16,6 +16,7 @@ $xpdo_meta_map['ReviewsReview'] = [
         'resource_id'   => null,
         'name'          => null,
         'email'         => null,
+        'city'          => null,
         'content'       => null,
         'active'        => null,
         'createdon'     => null,
@@ -48,6 +49,13 @@ $xpdo_meta_map['ReviewsReview'] = [
             'precision'     => '255',
             'phptype'       => 'string',
             'null'          => false,
+            'default'       => ''
+        ],
+        'city'          => [
+            'dbtype'        => 'varchar',
+            'precision'     => '255',
+            'phptype'       => 'string',
+            'null'          => true,
             'default'       => ''
         ],
         'content'       => [

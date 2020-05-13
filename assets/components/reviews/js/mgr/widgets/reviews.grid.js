@@ -111,7 +111,7 @@ Reviews.grid.Reviews = function(config) {
         },
         autosave    : true,
         save_action : 'mgr/reviews/updatefromgrid',
-        fields      : ['id', 'resource_id', 'name', 'email', 'content', 'active', 'createdon', 'editedon', 'ratings', 'average', 'resource_pagetitle', 'resource_pagetitle_formatted'],
+        fields      : ['id', 'resource_id', 'name', 'email', 'city', 'content', 'active', 'createdon', 'editedon', 'ratings', 'average', 'resource_pagetitle', 'resource_pagetitle_formatted'],
         paging      : true,
         pageSize    : MODx.config.default_per_page > 30 ? MODx.config.default_per_page : 30,
         grouping    : Reviews.config.resource_aware,
@@ -366,6 +366,16 @@ Reviews.window.CreateReview = function(config) {
                     html        : _('reviews.label_review_email_desc'),
                     cls         : 'desc-under'
                 }, {
+                    xtype       : 'textfield',
+                    fieldLabel  : _('reviews.label_review_city'),
+                    description : MODx.expandHelp ? '' : _('reviews.label_review_city_desc'),
+                    name        : 'city',
+                    anchor      : '100%'
+                }, {
+                    xtype       : MODx.expandHelp ? 'label' : 'hidden',
+                    html        : _('reviews.label_review_city_desc'),
+                    cls         : 'desc-under'
+                }, {
                     hidden      : !Reviews.config.resource_aware,
                     items       : [{
                         xtype       : 'reviews-combo-resource',
@@ -507,6 +517,16 @@ Reviews.window.UpdateReview = function(config) {
                 }, {
                     xtype       : MODx.expandHelp ? 'label' : 'hidden',
                     html        : _('reviews.label_review_email_desc'),
+                    cls         : 'desc-under'
+                }, {
+                    xtype       : 'textfield',
+                    fieldLabel  : _('reviews.label_review_city'),
+                    description : MODx.expandHelp ? '' : _('reviews.label_review_city_desc'),
+                    name        : 'city',
+                    anchor      : '100%'
+                }, {
+                    xtype       : MODx.expandHelp ? 'label' : 'hidden',
+                    html        : _('reviews.label_review_city_desc'),
                     cls         : 'desc-under'
                 }, {
                     hidden      : !Reviews.config.resource_aware,

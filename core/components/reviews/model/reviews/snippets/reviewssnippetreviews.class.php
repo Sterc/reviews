@@ -101,7 +101,9 @@ class ReviewsSnippetReviews extends ReviewsSnippets
 
             $output[] = $this->getChunk($this->getProperty('tpl'), array_merge($review->toArray(), [
                 'idx'           => $idx,
-                'averageRating' => (int) $review->getAverage(),
+                'average'       => (int) $review->getAverage(),
+                'minRating'     => $minRating,
+                'maxRating'     => $maxRating,
                 'totalRatings'  => $totalRatings,
                 'ratings'       => $review->getRatings(),
                 'ratingTypes'   => $ratingTypes,
