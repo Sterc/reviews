@@ -148,4 +148,17 @@ class Reviews
 
         return $ratings;
     }
+
+    /**
+     * @return array
+     */
+    public function getRatingRange() {
+        $range = explode('||', $this->getOption('ratings'));
+        if (count($range) == 2 && filter_var($range[0], FILTER_VALIDATE_INT) && filter_var($range[2], FILTER_VALIDATE_INT)) {
+            $range = range(intval($range[0]), intval($range[1]));
+        } else {
+            $range = range(1, 5);
+        }
+        return $range;
+    }
 }

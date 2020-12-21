@@ -1,117 +1,112 @@
 <?php
-
 /**
- * Reviews
- *
- * Copyright 2020 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>
+ * @package reviews
  */
-
-$xpdo_meta_map['ReviewsReview'] = [
-    'package'       => 'review',
-    'version'       => '1.0',
-    'table'         => 'reviews_review',
-    'extends'       => 'xPDOSimpleObject',
-    'fields'        => [
-        'id'            => null,
-        'resource_id'   => null,
-        'name'          => null,
-        'email'         => null,
-        'city'          => null,
-        'content'       => null,
-        'active'        => null,
-        'createdon'     => null,
-        'editedon'      => null
-    ],
-    'fieldMeta'     => [
-        'id'            => [
-            'dbtype'        => 'int',
-            'precision'     => '11',
-            'phptype'       => 'integer',
-            'null'          => false,
-            'index'         => 'pk',
-            'generated'     => 'native'
-        ],
-        'resource_id'   => [
-            'dbtype'        => 'int',
-            'precision'     => '11',
-            'phptype'       => 'integer',
-            'null'          => false
-        ],
-        'name'          => [
-            'dbtype'        => 'varchar',
-            'precision'     => '75',
-            'phptype'       => 'string',
-            'null'          => false,
-            'default'       => ''
-        ],
-        'email'         => [
-            'dbtype'        => 'varchar',
-            'precision'     => '255',
-            'phptype'       => 'string',
-            'null'          => false,
-            'default'       => ''
-        ],
-        'city'          => [
-            'dbtype'        => 'varchar',
-            'precision'     => '255',
-            'phptype'       => 'string',
-            'null'          => true,
-            'default'       => ''
-        ],
-        'content'       => [
-            'dbtype'        => 'text',
-            'phptype'       => 'string',
-            'null'          => false,
-            'default'       => ''
-        ],
-        'active'        => [
-            'dbtype'        => 'int',
-            'phptype'       => 'integer',
-            'precision'     => '1',
-            'null'          => false,
-            'default'       => 1
-        ],
-        'createdon'     => [
-            'dbtype'        => 'timestamp',
-            'phptype'       => 'timestamp',
-            'null'          => false,
-            'default'       => '0000-00-00 00:00:00'
-        ],
-        'editedon'      => [
-            'dbtype'        => 'timestamp',
-            'phptype'       => 'timestamp',
-            'attributes'    => 'ON UPDATE CURRENT_TIMESTAMP',
-            'null'          => false,
-            'default'       => '0000-00-00 00:00:00'
-        ]
-    ],
-    'indexes'       => [
-        'PRIMARY'       => [
-            'alias'         => 'PRIMARY',
-            'primary'       => true,
-            'unique'        => true,
-            'columns'       => [
-                'id'            => [
-                    'collation'     => 'A',
-                    'null'          => false
-                ]
-            ]
-        ]
-    ],
-    'aggregates'    =>  [
-        'Resource'      => [
-            'local'         => 'resource_id',
-            'class'         => 'modResource',
-            'foreign'       => 'id',
-            'owner'         => 'local',
-            'cardinality'   => 'one'
-        ],
-        'Rating'        => [
-            'local'         => 'id',
-            'class'         => 'ReviewsReviewRating',
-            'foreign'       => 'review_id',
-            'owner'         => 'local',
-            'cardinality'   => 'many'
-        ]
-    ]
-];
+$xpdo_meta_map['ReviewsReview']= array (
+  'package' => 'reviews',
+  'version' => '1.1',
+  'table' => 'reviews_review',
+  'extends' => 'xPDOSimpleObject',
+  'tableMeta' => 
+  array (
+    'engine' => 'InnoDB',
+  ),
+  'fields' => 
+  array (
+    'resource_id' => 0,
+    'name' => '',
+    'email' => '',
+    'city' => NULL,
+    'content' => NULL,
+    'active' => 1,
+    'createdon' => NULL,
+    'editedon' => NULL,
+  ),
+  'fieldMeta' => 
+  array (
+    'resource_id' => 
+    array (
+      'dbtype' => 'int',
+      'precision' => '11',
+      'phptype' => 'integer',
+      'null' => false,
+      'default' => 0,
+    ),
+    'name' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '75',
+      'phptype' => 'string',
+      'null' => false,
+      'default' => '',
+    ),
+    'email' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '255',
+      'phptype' => 'string',
+      'null' => false,
+      'default' => '',
+    ),
+    'city' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '255',
+      'phptype' => 'string',
+      'null' => true,
+      'default' => NULL,
+    ),
+    'content' => 
+    array (
+      'dbtype' => 'text',
+      'phptype' => 'string',
+    ),
+    'active' => 
+    array (
+      'dbtype' => 'tinyint',
+      'precision' => '1',
+      'attributes' => 'unsigned',
+      'phptype' => 'boolean',
+      'null' => false,
+      'default' => 1,
+    ),
+    'createdon' => 
+    array (
+      'dbtype' => 'timestamp',
+      'attributes' => 'ON UPDATE CURRENT_TIMESTAMP',
+      'phptype' => 'timestamp',
+      'null' => true,
+      'default' => NULL,
+    ),
+    'editedon' => 
+    array (
+      'dbtype' => 'timestamp',
+      'attributes' => 'ON UPDATE CURRENT_TIMESTAMP',
+      'phptype' => 'timestamp',
+      'null' => true,
+      'default' => NULL,
+    ),
+  ),
+  'composites' => 
+  array (
+    'Rating' => 
+    array (
+      'class' => 'ReviewsReviewRating',
+      'local' => 'id',
+      'foreign' => 'review_id',
+      'cardinality' => 'many',
+      'owner' => 'local',
+    ),
+  ),
+  'aggregates' => 
+  array (
+    'Resource' => 
+    array (
+      'class' => 'modResource',
+      'local' => 'resource_id',
+      'foreign' => 'id',
+      'cardinality' => 'one',
+      'owner' => 'foreign',
+    ),
+  ),
+);

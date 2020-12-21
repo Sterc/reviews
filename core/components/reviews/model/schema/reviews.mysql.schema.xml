@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="reviews" baseClass="xPDOObject" platform="mysql" defaultEngine="InnoDB" phpdoc-package="reviews" phpdoc-subpackage="model" version="1.1">
+    <object class="ReviewsReview" table="reviews_review" extends="xPDOSimpleObject">
+        <field key="resource_id" dbtype="int" precision="11" phptype="integer" null="false" default="0"/>
+        <field key="name" dbtype="varchar" precision="75" phptype="string" null="false" default=""/>
+        <field key="email" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="city" dbtype="varchar" precision="255" phptype="string" null="true" default="NULL"/>
+        <field key="content" dbtype="text" phptype="string" />
+        <field key="active" dbtype="tinyint" precision="1" attributes="unsigned" phptype="boolean" null="false" default="1"/>
+        <field key="createdon" dbtype="timestamp" attributes="ON UPDATE CURRENT_TIMESTAMP" phptype="timestamp" null="true" default="NULL"/>
+        <field key="editedon" dbtype="timestamp" attributes="ON UPDATE CURRENT_TIMESTAMP" phptype="timestamp" null="true" default="NULL"/>
+
+        <composite alias="Rating" class="ReviewsReviewRating" local="id" foreign="review_id" cardinality="many" owner="local"/>
+        <aggregate alias="Resource" class="modResource" local="resource_id" foreign="id" cardinality="one" owner="foreign"/>
+    </object>
+
+    <object class="ReviewsReviewRating" table="reviews_review_rating" extends="xPDOSimpleObject">
+        <field key="review_id" dbtype="int" precision="11" phptype="integer" null="false" default="0"/>
+        <field key="rating_id" dbtype="int" precision="11" phptype="integer" null="false" default="0"/>
+        <field key="value" dbtype="int" precision="5" phptype="integer" null="false" default="1"/>
+
+        <index alias="review_id" name="review_id" primary="false" unique="false" type="BTREE">
+            <column key="review_id" length="" collation="A" null="false" />
+        </index>
+        <index alias="rating_id" name="rating_id" primary="false" unique="false" type="BTREE">
+            <column key="rating_id" length="" collation="A" null="false" />
+        </index>
+
+        <aggregate alias="Review" class="ReviewsReview" local="review_id" foreign="id" cardinality="one" owner="foreign"/>
+        <aggregate alias="Rating" class="ReviewsRating" local="rating_id" foreign="id" cardinality="one" owner="foreign"/>
+    </object>
+
+    <object class="ReviewsRating" table="reviews_rating" extends="xPDOSimpleObject">
+        <field key="name" dbtype="varchar" precision="11" phptype="string" null="false" default=""/>
+        <field key="active" dbtype="text" phptype="string" null="true"/>
+        <field key="menuindex" dbtype="int" precision="11" phptype="integer" null="false" default="60"/>
+        <field key="createdon" dbtype="timestamp" phptype="timestamp" attributes="ON UPDATE CURRENT_TIMESTAMP" null="true" default="NULL"/>
+        <field key="editedon" dbtype="timestamp" phptype="timestamp" attributes="ON UPDATE CURRENT_TIMESTAMP" null="true" default="NULL"/>
+
+        <composite alias="Review" class="ReviewsReviewRating" local="id" foreign="rating_id" cardinality="many" owner="local"/>
+    </object>
+</model>

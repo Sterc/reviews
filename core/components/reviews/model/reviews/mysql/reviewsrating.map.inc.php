@@ -1,78 +1,74 @@
 <?php
-
 /**
- * Reviews
- *
- * Copyright 2020 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>
+ * @package reviews
  */
-
-$xpdo_meta_map['ReviewsRating'] = [
-    'package'       => 'review',
-    'version'       => '1.0',
-    'table'         => 'reviews_rating',
-    'extends'       => 'xPDOSimpleObject',
-    'fields'        => [
-        'id'            => null,
-        'name'          => '',
-        'active'        => null,
-        'menuindex'     => null,
-        'createdon'     => null,
-        'editedon'      => null
-    ],
-    'fieldMeta'     => [
-        'id'            => [
-            'dbtype'        => 'int',
-            'precision'     => '11',
-            'phptype'       => 'integer',
-            'null'          => false,
-            'index'         => 'pk',
-            'generated'     => 'native'
-        ],
-        'name'          => [
-            'dbtype'        => 'varchar',
-            'precision'     => '75',
-            'phptype'       => 'string',
-            'null'          => false,
-            'default'       => ''
-        ],
-        'active'        => [
-            'dbtype'        => 'int',
-            'phptype'       => 'integer',
-            'precision'     => '1',
-            'null'          => false,
-            'default'       => 1
-        ],
-        'menuindex'	     => [
-            'dbtype'        => 'int',
-            'precision'     => '11',
-            'phptype'       => 'integer',
-            'null'          => false
-        ],
-        'createdon'     => [
-            'dbtype'        => 'timestamp',
-            'phptype'       => 'timestamp',
-            'null'          => false,
-            'default'       => '0000-00-00 00:00:00'
-        ],
-        'editedon'      => [
-            'dbtype'        => 'timestamp',
-            'phptype'       => 'timestamp',
-            'attributes'    => 'ON UPDATE CURRENT_TIMESTAMP',
-            'null'          => false,
-            'default'       => '0000-00-00 00:00:00'
-        ]
-    ],
-    'indexes'       => [
-        'PRIMARY'       => [
-            'alias'         => 'PRIMARY',
-            'primary'       => true,
-            'unique'        => true,
-            'columns'       => [
-                'id'            => [
-                    'collation'     => 'A',
-                    'null'          => false
-                ]
-            ]
-        ]
-    ]
-];
+$xpdo_meta_map['ReviewsRating']= array (
+  'package' => 'reviews',
+  'version' => '1.1',
+  'table' => 'reviews_rating',
+  'extends' => 'xPDOSimpleObject',
+  'tableMeta' => 
+  array (
+    'engine' => 'InnoDB',
+  ),
+  'fields' => 
+  array (
+    'name' => '',
+    'active' => NULL,
+    'menuindex' => 60,
+    'createdon' => NULL,
+    'editedon' => NULL,
+  ),
+  'fieldMeta' => 
+  array (
+    'name' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '11',
+      'phptype' => 'string',
+      'null' => false,
+      'default' => '',
+    ),
+    'active' => 
+    array (
+      'dbtype' => 'text',
+      'phptype' => 'string',
+      'null' => true,
+    ),
+    'menuindex' => 
+    array (
+      'dbtype' => 'int',
+      'precision' => '11',
+      'phptype' => 'integer',
+      'null' => false,
+      'default' => 60,
+    ),
+    'createdon' => 
+    array (
+      'dbtype' => 'timestamp',
+      'phptype' => 'timestamp',
+      'attributes' => 'ON UPDATE CURRENT_TIMESTAMP',
+      'null' => true,
+      'default' => NULL,
+    ),
+    'editedon' => 
+    array (
+      'dbtype' => 'timestamp',
+      'phptype' => 'timestamp',
+      'attributes' => 'ON UPDATE CURRENT_TIMESTAMP',
+      'null' => true,
+      'default' => NULL,
+    ),
+  ),
+  'composites' => 
+  array (
+    'Review' => 
+    array (
+      'class' => 'ReviewsReviewRating',
+      'local' => 'id',
+      'foreign' => 'rating_id',
+      'cardinality' => 'many',
+      'owner' => 'local',
+    ),
+  ),
+);

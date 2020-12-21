@@ -1,13 +1,7 @@
 <?php
-
 /**
- * Reviews
- *
- * Copyright 2020 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>
+ * @package reviews
  */
-
-require_once dirname(__DIR__) . '/reviewsreview.class.php';
-
-class ReviewsReview_mysql extends ReviewsReview
-{
-}
+require_once (strtr(realpath(dirname(dirname(__FILE__))), '\\', '/') . '/reviewsreview.class.php');
+class ReviewsReview_mysql extends ReviewsReview {}
+?>

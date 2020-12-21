@@ -1,91 +1,172 @@
 {
-    "name": "Reviews",
-    "lowCaseName": "reviews",
-    "description": "A reviews solution for MODX Revolution.",
-    "author": "Sterc",
-    "version": "1.2.0-pl",
-    "package":{
-        "menus": [{
-            "text": "reviews",
-            "description": "reviews.desc",
-            "parent": "components",
-            "action": "home",
-            "permissions": "reviews"
-        }],
-        "elements": {
-            "chunks": [{
-                "name": "reviewsItemTpl",
-                "file": "item.chunk.tpl"
-            },{
-                "name": "reviewsWrapperTpl",
-                "file": "wrapper.chunk.tpl"
-            }],
-            "snippets": [{
-                "name": "Reviews",
-                "file": "reviews.snippet.php",
-                "properties": [{
-                    "name": "limit",
-                    "value": "10",
-                    "description": "reviews.snippet_limit_desc"
-                },{
-                    "name": "where",
-                    "value": "{\"active\": \"1\"}",
-                    "description": "reviews.snippet_where_desc"
-                },{
-                    "name": "sortby",
-                    "value": "{\"createdon\": \"DESC\"}",
-                    "description": "reviews.snippet_sortby_desc"
-                },{
-                    "name": "tpl",
-                    "value": "@FILE elements/chunks/item.chunk.tpl",
-                    "description": "reviews.snippet_tpl_desc"
-                },{
-                    "name": "tplWrapper",
-                    "value": "@FILE elements/chunks/wrapper.chunk.tpl",
-                    "description": "reviews.snippet_tplwrapper_desc"
-                }]
-            }]
+  "name": "Reviews",
+  "lowCaseName": "reviews",
+  "description": "A reviews solution for MODX Revolution.",
+  "author": "Sterc",
+  "version": "1.3.0-pl",
+  "package": {
+    "menus": [
+      {
+        "text": "reviews",
+        "description": "reviews.desc",
+        "parent": "components",
+        "action": "home",
+        "permissions": "reviews"
+      }
+    ],
+    "elements": {
+      "chunks": [
+        {
+          "name": "reviewsItemTpl",
+          "file": "item.chunk.tpl"
         },
-        "systemSettings": [{
-            "key": "branding_url",
-            "area": "reviews"
-        },{
-            "key": "branding_url_help",
-            "area": "reviews"
-        },{
-            "key": "ratings",
-            "value": "1||5",
-            "area": "reviews"
-        },{
-            "type": "combo-boolean",
-            "key": "use_editor",
-            "value": 0,
-            "area": "reviews"
-        },{
-            "key": "include_resources",
-            "value": "{}",
-            "area": "reviews"
-        },{
-            "type": "combo-boolean",
-            "key": "resource_aware",
-            "value": 0,
-            "area": "reviews"
-        }]
-    },
-    "build":{
-        "readme": "docs/readme.txt",
-        "license": "docs/license.txt",
-        "changelog": "docs/changelog.txt",
-        "resolver": {
-            "after": [
-                "tables.resolver.php",
-                "permissions.resolver.php",
-                "setupoptions.resolver.php",
-                "stercextra.resolver.php"
-            ]
+        {
+          "name": "reviewsWrapperTpl",
+          "file": "wrapper.chunk.tpl"
         },
-        "setupOptions":{
-            "source": "setup.options.php"
+        {
+          "name": "reviewsFormTpl",
+          "file": "form.chunk.tpl"
         }
+      ],
+      "snippets": [
+        {
+          "name": "Reviews",
+          "file": "reviews.snippet.php",
+          "properties": [
+            {
+              "name": "limit",
+              "value": "10",
+              "description": "reviews.snippet_limit_desc"
+            },
+            {
+              "name": "where",
+              "value": "{\"active\": \"1\"}",
+              "description": "reviews.snippet_where_desc"
+            },
+            {
+              "name": "sortby",
+              "value": "{\"createdon\": \"DESC\"}",
+              "description": "reviews.snippet_sortby_desc"
+            },
+            {
+              "name": "tpl",
+              "value": "@FILE elements/chunks/item.chunk.tpl",
+              "description": "reviews.snippet_tpl_desc"
+            },
+            {
+              "name": "tplWrapper",
+              "value": "@FILE elements/chunks/wrapper.chunk.tpl",
+              "description": "reviews.snippet_tplwrapper_desc"
+            }
+          ]
+        },
+        {
+          "name": "Formit2Reviews",
+          "file": "formit2reviews.hook.php",
+          "properties": [
+            {
+              "name": "reviewsAllowOverwrite",
+              "type": "combo-boolean",
+              "value": "0",
+              "description": "reviews2formit.hook_reviews_allow_overwrite_desc"
+            },
+            {
+              "name": "reviewsAutoPublish",
+              "type": "combo-boolean",
+              "value": "0",
+              "description": "reviews2formit.hook_reviews_auto_publish_desc"
+            }
+          ]
+        },
+        {
+          "name": "ReviewGroup",
+          "file": "reviewgroup.snippet.php",
+          "properties": [
+            {
+              "name": "type",
+              "value": "default",
+              "description": "reviewgroup.snippet_type_desc"
+            },
+            {
+              "name": "value",
+              "value": "",
+              "description": "reviewgroup.snippet_value_desc"
+            },
+            {
+              "name": "required",
+              "type": "combo-boolean",
+              "value": "0",
+              "description": "reviewgroup.snippet_required_desc"
+            },
+            {
+              "name": "tpl",
+              "value": "@FILE elements/chunks/formselect.chunk.tpl",
+              "description": "reviewgroup.snippet_tpl_desc"
+            },
+            {
+              "name": "tplWrapper",
+              "value": "@FILE elements/chunks/formoption.chunk.tpl",
+              "description": "reviewgroup.snippet_tplwrapper_desc"
+            }
+          ]
+        }
+      ]
+    },
+    "systemSettings": [
+      {
+        "key": "branding_url",
+        "area": "reviews"
+      },
+      {
+        "key": "branding_url_help",
+        "area": "reviews"
+      },
+      {
+        "key": "ratings",
+        "value": "1||5",
+        "area": "reviews"
+      },
+      {
+        "type": "combo-boolean",
+        "key": "use_editor",
+        "value": 0,
+        "area": "reviews"
+      },
+      {
+        "key": "include_resources",
+        "value": "{}",
+        "area": "reviews"
+      },
+      {
+        "type": "combo-boolean",
+        "key": "resource_aware",
+        "value": 0,
+        "area": "reviews"
+      }
+    ]
+  },
+  "database": {
+    "tables": [
+      "ReviewsReview",
+      "ReviewsReviewRating",
+      "ReviewsRating"
+    ]
+  },
+  "build": {
+    "readme": "docs/readme.txt",
+    "license": "docs/license.txt",
+    "changelog": "docs/changelog.txt",
+    "resolver": {
+      "after": [
+        "tables.resolver.php",
+        "permissions.resolver.php",
+        "setupoptions.resolver.php",
+        "stercextra.resolver.php"
+      ]
+    },
+    "setupOptions": {
+      "source": "setup.options.php"
     }
+  }
 }
