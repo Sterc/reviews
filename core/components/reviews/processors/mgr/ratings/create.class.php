@@ -47,9 +47,9 @@ class ReviewsRatingCreateProcessor extends modObjectCreateProcessor
      */
     public function beforeSave()
     {
-        $this->setMenuIndex();
-
         $this->object->set('createdon', date('Y-m-d H:i:s'));
+
+        $this->setMenuIndex();
 
         return parent::beforeSave();
     }

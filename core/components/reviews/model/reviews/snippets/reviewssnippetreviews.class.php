@@ -3,7 +3,7 @@
 /**
  * Reviews
  *
- * Copyright 2020 by Oene Tjeerd de Bruin <oenetjeerd@sterc.nl>
+ * Copyright 2020 by Thomas Jakobi <office@treehillstudio.com>
  */
 
 require_once dirname(__DIR__) . '/reviewssnippets.class.php';
@@ -88,6 +88,7 @@ class ReviewsSnippetReviews extends ReviewsSnippets
         $totalRatings   = $this->modx->getCount('ReviewsReview', $criteria);
         $ratingTypes    = [];
         $ratingStats    = [];
+        $stats          = array_fill_keys($this->getRatingRange(), 0);
 
         foreach ($this->getRatings() as $rating) {
             $ratingTypes[(int) $rating['id']] = $rating;
@@ -96,12 +97,15 @@ class ReviewsSnippetReviews extends ReviewsSnippets
             ]);
         }
 
+        /** @var ReviewsReview $review */
         foreach ($this->modx->getCollection('ReviewsReview', $criteria) as $review) {
-            $totalRating += (int) $review->getAverage();
+            $reviewAverage = round($review->getAverage());
+            $stats[$reviewAverage] +=1;
+            $totalRating += $reviewAverage;
 
             $output[] = $this->getChunk($this->getProperty('tpl'), array_merge($review->toArray(), [
                 'idx'           => $idx,
-                'average'       => (int) $review->getAverage(),
+                'average'       => $reviewAverage,
                 'minRating'     => $minRating,
                 'maxRating'     => $maxRating,
                 'totalRatings'  => $totalRatings,
@@ -136,6 +140,7 @@ class ReviewsSnippetReviews extends ReviewsSnippets
                     'maxRating'     => $maxRating,
                     'ratingTypes'   => $ratingTypes,
                     'ratingStats'   => $ratingStats,
+                    'stats'         => $stats,
                     'total'         => $totalRatings
                 ]);
             }
