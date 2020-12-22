@@ -14,9 +14,9 @@ $xpdo_meta_map['ReviewsRating']= array (
   'fields' => 
   array (
     'name' => '',
-    'active' => NULL,
-    'menuindex' => 60,
-    'createdon' => NULL,
+    'active' => 1,
+    'menuindex' => 0,
+    'createdon' => 'CURRENT TIMESTAMP',
     'editedon' => NULL,
   ),
   'fieldMeta' => 
@@ -24,32 +24,35 @@ $xpdo_meta_map['ReviewsRating']= array (
     'name' => 
     array (
       'dbtype' => 'varchar',
-      'precision' => '11',
+      'precision' => '75',
       'phptype' => 'string',
       'null' => false,
       'default' => '',
     ),
     'active' => 
     array (
-      'dbtype' => 'text',
-      'phptype' => 'string',
-      'null' => true,
+      'dbtype' => 'tinyint',
+      'precision' => '1',
+      'attributes' => 'unsigned',
+      'phptype' => 'boolean',
+      'null' => false,
+      'default' => 1,
     ),
     'menuindex' => 
     array (
       'dbtype' => 'int',
       'precision' => '11',
+      'attributes' => 'unsigned',
       'phptype' => 'integer',
       'null' => false,
-      'default' => 60,
+      'default' => 0,
     ),
     'createdon' => 
     array (
       'dbtype' => 'timestamp',
       'phptype' => 'timestamp',
-      'attributes' => 'ON UPDATE CURRENT_TIMESTAMP',
       'null' => true,
-      'default' => NULL,
+      'default' => 'CURRENT TIMESTAMP',
     ),
     'editedon' => 
     array (

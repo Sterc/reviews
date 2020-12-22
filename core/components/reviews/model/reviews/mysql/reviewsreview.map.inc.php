@@ -19,7 +19,7 @@ $xpdo_meta_map['ReviewsReview']= array (
     'city' => NULL,
     'content' => NULL,
     'active' => 1,
-    'createdon' => NULL,
+    'createdon' => 'CURRENT TIMESTAMP',
     'editedon' => NULL,
   ),
   'fieldMeta' => 
@@ -28,6 +28,7 @@ $xpdo_meta_map['ReviewsReview']= array (
     array (
       'dbtype' => 'int',
       'precision' => '11',
+      'attributes' => 'unsigned',
       'phptype' => 'integer',
       'null' => false,
       'default' => 0,
@@ -73,10 +74,9 @@ $xpdo_meta_map['ReviewsReview']= array (
     'createdon' => 
     array (
       'dbtype' => 'timestamp',
-      'attributes' => 'ON UPDATE CURRENT_TIMESTAMP',
       'phptype' => 'timestamp',
       'null' => true,
-      'default' => NULL,
+      'default' => 'CURRENT TIMESTAMP',
     ),
     'editedon' => 
     array (

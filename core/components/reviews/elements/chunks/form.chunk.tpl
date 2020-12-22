@@ -11,6 +11,8 @@
         [[!+fi.error.email]]
     </div>
     [[!ReviewGroup?
+    &tpl=`@FILE elements/chunks/formselect.chunk.tpl`
+    &tplOption=`@FILE elements/chunks/formoption.chunk.tpl`
     &type=`default`
     &value=`[[!+fi.rating_default]]`
     &error=`[[!+fi.error.rating_default]]`

@@ -159,7 +159,6 @@
     "changelog": "docs/changelog.txt",
     "resolver": {
       "after": [
-        "tables.resolver.php",
         "permissions.resolver.php",
         "setupoptions.resolver.php",
         "stercextra.resolver.php"

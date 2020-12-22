@@ -72,7 +72,7 @@ class ReviewsHookFormit2Reviews extends ReviewsSnippets
             ]);
             foreach ($ratings as $rating) {
                 if (isset($fields['rating_' . $rating->get('name')])) {
-                    if (isset($ratingRange[$fields['rating_' . $rating->get('name')]])) {
+                    if (in_array($fields['rating_' . $rating->get('name')], $ratingRange)) {
                         if (!$reviewRating = $this->modx->getObject('ReviewsReviewRating', [
                             'review_id' => $review->get('id'),
                             'rating_id' => $rating->get('id')

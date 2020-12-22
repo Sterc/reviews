@@ -23,6 +23,7 @@ $xpdo_meta_map['ReviewsReviewRating']= array (
     array (
       'dbtype' => 'int',
       'precision' => '11',
+      'attributes' => 'unsigned',
       'phptype' => 'integer',
       'null' => false,
       'default' => 0,
@@ -31,6 +32,7 @@ $xpdo_meta_map['ReviewsReviewRating']= array (
     array (
       'dbtype' => 'int',
       'precision' => '11',
+      'attributes' => 'unsigned',
       'phptype' => 'integer',
       'null' => false,
       'default' => 0,
@@ -39,6 +41,7 @@ $xpdo_meta_map['ReviewsReviewRating']= array (
     array (
       'dbtype' => 'int',
       'precision' => '5',
+      'attributes' => 'unsigned',
       'phptype' => 'integer',
       'null' => false,
       'default' => 1,

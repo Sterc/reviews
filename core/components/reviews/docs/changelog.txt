@@ -11,7 +11,9 @@ Released: 2020‑12-21
 - Formit2Reviews Snippet
 - Default FormIt Chunk
 - ReviewGroup Snippet
-- Fixes for missing values in not Fenom based chunks  
+- Fixes for missing values in not Fenom based chunks
+- Fixes not changeable rating in the backend
+- Fixes adding new rating values for a review in the backend during editing the review
 
 ----------------------
 Version: 1.2.0
