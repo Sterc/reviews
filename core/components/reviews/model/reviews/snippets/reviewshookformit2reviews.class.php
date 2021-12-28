@@ -98,7 +98,7 @@ class ReviewsHookFormit2Reviews extends ReviewsSnippets
 
         if ($hook->hasErrors() && !(bool)$this->getProperty('reviewsAllowOverwrite') && $new) {
             $review->remove();
-        };
+        }
         return !$hook->hasErrors();
     }
 }
