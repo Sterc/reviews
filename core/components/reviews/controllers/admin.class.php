@@ -15,11 +15,11 @@ class ReviewsAdminManagerController extends ReviewsManagerController
      */
     public function loadCustomCssJs()
     {
-        $this->addJavascript($this->modx->reviews->config['js_url'] . 'mgr/widgets/admin.panel.js');
+        $this->addJavascript($this->reviews->config['js_url'] . 'mgr/widgets/admin.panel.js');
 
-        $this->addJavascript($this->modx->reviews->config['js_url'] . 'mgr/widgets/ratings.grid.js');
+        $this->addJavascript($this->reviews->config['js_url'] . 'mgr/widgets/ratings.grid.js');
 
-        $this->addLastJavascript($this->modx->reviews->config['js_url'] . 'mgr/sections/admin.js');
+        $this->addLastJavascript($this->reviews->config['js_url'] . 'mgr/sections/admin.js');
     }
 
     /**
@@ -37,7 +37,7 @@ class ReviewsAdminManagerController extends ReviewsManagerController
      */
     public function getTemplateFile()
     {
-        return $this->modx->reviews->config['templates_path'] . 'admin.tpl';
+        return $this->reviews->config['templates_path'] . 'admin.tpl';
     }
 
     /**

@@ -8,32 +8,34 @@
 
 abstract class ReviewsManagerController extends modExtraManagerController
 {
+    /** @var Reviews $reviews */
+    public $reviews;
+
     /**
      * @access public.
-     * @return Mixed.
      */
     public function initialize()
     {
-        $this->modx->getService('reviews', 'Reviews', $this->modx->getOption('reviews.core_path', null, $this->modx->getOption('core_path') . 'components/reviews/') . 'model/reviews/');
+        $this->reviews = $this->modx->getService('reviews', 'Reviews', $this->modx->getOption('reviews.core_path', null, $this->modx->getOption('core_path') . 'components/reviews/') . 'model/reviews/');
 
-        $this->addCss($this->modx->reviews->config['css_url'] . 'mgr/reviews.css');
+        $this->addCss($this->reviews->config['css_url'] . 'mgr/reviews.css');
 
-        $this->addJavascript($this->modx->reviews->config['js_url'] . 'mgr/reviews.js');
+        $this->addJavascript($this->reviews->config['js_url'] . 'mgr/reviews.js');
 
-        $this->addJavascript($this->modx->reviews->config['js_url'] . 'mgr/extras/extras.js');
+        $this->addJavascript($this->reviews->config['js_url'] . 'mgr/extras/extras.js');
 
         $this->addHtml('<script type="text/javascript">
             Ext.onReady(function() {
-                MODx.config.help_url = "' . $this->modx->reviews->getHelpUrl() . '";
+                MODx.config.help_url = "' . $this->reviews->getHelpUrl() . '";
                 
-                Reviews.config = ' . $this->modx->toJSON(array_merge($this->modx->reviews->config, [
-                    'branding_url'      => $this->modx->reviews->getBrandingUrl(),
-                    'branding_url_help' => $this->modx->reviews->getHelpUrl()
-                ])) . ';
+                Reviews.config = ' . json_encode(array_merge($this->reviews->config, [
+                    'branding_url'      => $this->reviews->getBrandingUrl(),
+                    'branding_url_help' => $this->reviews->getHelpUrl()
+                ]), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . ';
             });
         </script>');
 
-        return parent::initialize();
+        parent::initialize();
     }
 
     /**
@@ -42,7 +44,7 @@ abstract class ReviewsManagerController extends modExtraManagerController
      */
     public function getLanguageTopics()
     {
-        return $this->modx->reviews->config['lexicons'];
+        return $this->reviews->config['lexicons'];
     }
 
     /**
