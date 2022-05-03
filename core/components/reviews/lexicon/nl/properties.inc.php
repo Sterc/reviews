@@ -13,3 +13,6 @@ $_lang['reviews.snippet_where_desc']                                    = 'De wa
 $_lang['reviews.snippet_sortby_desc']                                   = 'De volgorde waarin de reviews weergegeven moeten worden. Standaard is "{"created": "DESC"}".';
 $_lang['reviews.snippet_tpl_desc']                                      = 'De template van de een review, dit kan een chunk naam, @FILE of @INLINE zijn.';
 $_lang['reviews.snippet_tplwrapper_desc']                               = 'De template van de wrapper van de reviews, dit kan een chunk naam, @FILE of @INLINE zijn.';
+
+$_lang['reviews2formit.hook_reviews_allow_overwrite_desc']              = 'Laat overschrijven toe van bestaande reviews met dezelfde naam en dezelfde e-mail.';
+$_lang['reviews2formit.hook_reviews_auto_publish_desc']                 = 'Auto publish ingediende reviews.';

@@ -40,6 +40,17 @@ class ReviewsRatingUpdateProcessor extends modObjectUpdateProcessor
 
         return parent::initialize();
     }
+
+    /**
+     * @access public.
+     * @return Mixed.
+     */
+    public function beforeSave()
+    {
+        $this->object->set('editedon', date('Y-m-d H:i:s'));
+
+        return parent::beforeSave();
+    }
 }
 
 return 'ReviewsRatingUpdateProcessor';

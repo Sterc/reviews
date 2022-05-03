@@ -7,10 +7,10 @@
             <li>2 [[%reviews.rating_2]]: [[+stats.2]]</li>
             <li>1 [[%reviews.rating_1]]: [[+stats.1]]</li>
         </ul>
+        <p>[[%reviews.average]]: <strong>[[+average]]</strong></p>
     </div>
     <div class="col-12 col-md-8">
         <h2>[[%reviews.title? &total=`[[+total]]`]]</h2>
-        <p>[[+rating]]</p>
         [[+output]]
     </div>
 </div>
