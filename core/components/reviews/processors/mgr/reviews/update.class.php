@@ -47,24 +47,22 @@ class ReviewsReviewUpdateProcessor extends modObjectUpdateProcessor
      */
     public function beforeSave()
     {
-        foreach ((array) $this->getProperty('rating', []) as $key => $value) {
+        $this->object->set('editedon', date('Y-m-d H:i:s'));
+
+        foreach ((array)$this->getProperty('rating', []) as $key => $value) {
             $rating = $this->modx->getObject('ReviewsReviewRating', [
-                'review_id' => (int) $this->object->get('id'),
-                'rating_id' => (int) $key
+                'review_id' => (int)$this->object->get('id'),
+                'rating_id' => (int)$key
             ]);
-
-            if ($rating) {
+            if (!$rating) {
                 $rating = $this->modx->newObject('ReviewsReviewRating');
-            }
-
-            if ($rating) {
-                $rating->fromArray([
-                   'rating_id' => (int) $key,
-                   'value'     => (int) $value
-                ]);
-
                 $this->object->addMany($rating);
             }
+            $rating->fromArray([
+                'rating_id' => (int)$key,
+                'value' => (int)$value
+            ]);
+            $rating->save();
         }
 
         return parent::beforeSave();

@@ -3,6 +3,25 @@ Reviews
 ----------------------
 
 ----------------------
+Version: 1.3.1
+Released: 2022‑05-03
+----------------------
+- Fix for a not working use_editor system setting
+
+----------------------
+Version: 1.3.0
+Released: 2020‑12-21
+----------------------
+- Created an XML Scheme
+- Bugfixes for MySQL STRICT_TRANS_TABLES
+- Formit2Reviews Snippet
+- Default FormIt Chunk
+- ReviewGroup Snippet
+- Fixes for missing values in not Fenom based chunks
+- Fixes not changeable rating in the backend
+- Fixes adding new rating values for a review in the backend during editing the review
+
+----------------------
 Version: 1.2.0
 Released: 2020‑05-07
 ----------------------

@@ -49,17 +49,14 @@ class ReviewsReviewCreateProcessor extends modObjectCreateProcessor
     {
         $this->object->set('createdon', date('Y-m-d H:i:s'));
 
-        foreach ((array) $this->getProperty('rating', []) as $key => $value) {
+        foreach ((array)$this->getProperty('rating', []) as $key => $value) {
             $rating = $this->modx->newObject('ReviewsReviewRating');
-
-            if ($rating) {
-                $rating->fromArray([
-                    'rating_id' => (int) $key,
-                    'value'     => (int) $value
-                ]);
-
-                $this->object->addMany($rating);
-            }
+            $this->object->addMany($rating);
+            $rating->fromArray([
+                'rating_id' => (int)$key,
+                'value' => (int)$value
+            ]);
+            $rating->save();
         }
 
         return parent::beforeSave();
